@@ -26,3 +26,19 @@ li{
 footer{
     display: block;
 }
+
+.sweet-alert h2, .spr-number, h2.popular-post-title, #shuffle-play-btn, #footer-subscribe-btn, .hp-cat a, .hp-cat > span, .search-options a, .sb-pop-post-lnk, .entry h3, .categories-drop-down, #apps-list, .sb-pop-post-lnk, .hp-cat a, .hp-cat > span, .entry h2.popular-posts-title, .pen-rect h2, .git-rect h2
+ .article-rect h2, .books-rects h2, div.pl-md-deal-title, .horizonta-post-title .hpi-text, #footer-subscribe-btn, .popular-posts-title, .article-rect h2, .spr-number, .inner-post-sb-pop h2.popular-post-title, .article-top-block .atb-text .post-pub-info, .tiempos-body #switch-to-serif-btn, .cp-total, .entry-content blockquote p {
+    font-family: "Benton Sans";
+    font-style: normal;
+    font-weight: bold;
+    text-transform: none;
+}
+
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}

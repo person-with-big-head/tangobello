@@ -1,0 +1,243 @@
+#content-wrap.cw-single {
+    overflow: Hidden;
+    padding-bottom: 300px;
+}
+
+#content-wrap {
+    padding-bottom: 295px;
+    overflow: hidden;
+}
+
+#content{
+    position: relative;
+}
+
+#content > .content-block {
+    background: #fff;
+    padding: 20px 30px 40px 30px;
+}
+.article-area {
+    max-width: 1330px;
+    margin-top: -20px;
+}
+.content-block {
+    margin: 0 auto;
+    max-width: 1400px;
+    clear: both;
+    position: relative;
+}
+
+.cw-single div.article-top-block {
+    min-height: 600px;
+}
+
+.cw-single div.article-top-block {
+    margin: -50px -30px 0;
+    overflow: hidden;
+    max-height: 765px;
+}
+body a{
+    text-decoration: none;
+}
+.cw-single .ft-inner-img {
+    position: relative;
+    top: 50px;
+}
+.cw-single div.article-top-block {
+    max-width: none;
+    margin: 0 -30px;
+}
+.cw-single div.article-block {
+    max-width: none;
+    position: relative;
+}
+div.article-block {
+    max-width: 1130px;
+    margin: 0 auto;
+}
+.article-top-block {
+    position: relative;
+    z-index: 2;
+}
+
+#content-wrap.cw-single {
+    overflow: Hidden;
+    padding-bottom: 300px;
+}
+
+.cw-single div.article-top-block {
+    min-height: 600px;
+}
+
+.cw-single div.article-top-block {
+    margin: -20px -30px 0;
+    overflow: hidden;
+    max-height: 765px;
+}
+
+.cw-single .ft-inner-img {
+    position: relative;
+    top: 50px;
+}
+
+.ft-inner-img-wrap, .ft-inner-img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.atb-text-wrap {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.hp-article-info, .atb-text {
+    background: rgba(0,0,0, 0.82);
+}
+.atb-text {
+    color: #fff;
+    padding: 35px 20px 30px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 70%;
+    margin: 0 auto;
+}
+.in-meta {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: -15px;
+    text-align: center;
+}
+h1.new-single-title {
+    font-size: 50px;
+    line-height: 1.2em;
+    margin-bottom: 5px;
+    text-align: center;
+    margin: 0px auto 0;
+    padding-top: 0px;
+    font-family: NuvoWeb, 华文行楷;
+}
+.atb-text h1 {
+    color: #fff;
+}
+[data-tooltip]:not([data-tooltip=""]) {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+.atb-text .category {
+    left: 0;
+    padding: 8px 12px 6px;
+    margin-bottom: 0;
+    font-size: 15px;
+    color: #272828;
+    background: #fab23a;
+    text-transform: uppercase;
+}
+.ppi-author {
+    position: relative;
+    font-size: 15px;
+}
+.ppis {
+    display: inline-block;
+    position: relative;
+}
+.ppi-dot {
+    display: inline-block;
+    margin: 0 3px;
+}
+#ppi-local-date, .ppi-time-label {
+    font-weight: normal;
+}
+.atb-text .post-pub-info a {
+    color: #7ac1f4;
+}
+[data-tooltip]:not([data-tooltip=""]) {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.article-top-block .atb-text .post-pub-info {
+    font-size: 13px;
+    text-transform: none;
+    margin: 10px auto 0px;
+    text-align: center;
+}
+.article-top-block .post-pub-info {
+    margin: 10px 0;
+    text-align: center;
+}
+.atb-text .post-pub-info {
+    color: #fff;
+}
+
+.ppi-author {
+    position: relative;
+    font-size: 15px;
+}
+.ppis {
+    display: inline-block;
+    position: relative;
+}
+
+.ppi-author img {
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+.page-content, .entry-content {
+    font-size: 17px;
+    line-height: 1.7em;
+    margin: 0 auto;
+}
+.entry .single-first-p {
+    padding-top: 0;
+}
+.article-content h1, .article-content blockquote, .article-content form, .article-content h2, .article-content h3, .article-content h4, .article-content p, .article-content ul, .article-content ol, .article-content table, .article-content div, .post-author-bio {
+    margin: 0px auto;
+    max-width: 680px;
+}
+.entry p {
+    margin: 0px 0 0;
+    padding: 9px 0 15px 0;
+}
+
+.article-block-wrap.white {
+    background: #fff;
+    padding-top: 30px;
+    margin-top: 0px;
+}
+
+.cw-single div.article-block {
+    max-width: none;
+    position: relative;
+}
+.article-block.white {
+    background: #fff;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+div.article-block {
+    max-width: 1130px;
+    margin: 0 auto;
+}
+.entry-content-wrap {
+    padding-right: 330px;
+    padding-left: 70px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    float: left;
+    width: 100%;
+}
+.entry {
+    margin: 0 auto;
+}

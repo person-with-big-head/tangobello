@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tangobello Blog</title>
+    <link type="text/css"  rel="stylesheet" href="/static/css/main.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/normal.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/post.css">
+    <script src="https://use.fontawesome.com/7d2e64164d.js"></script>
+    <script src="/static/js/main.js"></script>
+</head>
+<body>
+{% include "site/header.html" %}
+<div id="content-wrap" class="cw-single">
+  <div id="content" autoscroll="false">
+      <div class="article-area content-block">
+        <div class="article-entry-wrap">
+            <div class="article-entry">
+                <div class="article-block article-top-block">
+                    <img width="2780" height="1529" src="{{ post.article_img_list[0] }}"
+                         class="ft-inner-img wp-post-image" alt="{{ post.article_title }}" id="ft-inner-image" style="top: 0px;">
+                    <div class="atb-text-wrap">
+                        <div class="atb-text">
+                            <div class="in-meta">
+                                <a class="category" href="/category/{{ post.category.category_name }}">{{ post.category.category_name }}</a>
+                            </div>
+                            <h1 id="wdd-inner-article-title" class="new-single-title">{{ post.article_title }}</h1>
+                            <div class="post-pub-info">
+                                <div class="ppi-author">
+                                    <div class="ppis">
+                                    <a class="auth-ava-lnk" href="/author/{{ post.author.author_name }}">
+                                        <img alt="" src="{{ post.author.author_avatar }}" class="avatar avatar-36 photo" height="36" width="36">
+                                    </a>
+                                    <span>
+                                        By <a href="/author/{{ post.author.author_name }}">{{ post.author.author_name }}</a>
+                                    </span>
+                                    <span class="ppi-dot">·</span>
+                                    <span class="ppi-time-label">
+                                        <span class="ptl-wrd">Posted</span> Nov. 03, 2017
+                                    </span>
+                                    <span class="ppi-reading-time">
+                                        <span class="ppi-dot">·</span> Reading time: 8 minutes
+                                    </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="article-block-wrap white">
+                    <div class=" article-block white">
+                        <div class="entry entry-content-wrap">
+                            <article class="entry-content article-content">
+                                {{ post.article_content }}
+                            </article>
+                        </div>
+                    </div>
+                </div> <!-- article-block-wrap -->
+            </div>
+        </div>
+    </div>
+  </div> <!-- content -->
+</div>
+{% include "site/footer.html" %}
+</body>
+</html>

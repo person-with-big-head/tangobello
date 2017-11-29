@@ -786,6 +786,10 @@ article{
     display: none;
 }
 
+.disabled{
+    display: none;
+}
+
 .paging-jump-form {
     position: absolute;
     right: 0;
@@ -1016,4 +1020,12 @@ article{
 #fixed-controls a:hover{
     color: white;
     background: #000000;
+}
+
+.pagination>li:first-child>a, .pagination>li:first-child>span {
+    margin-left: 0;
+}
+
+.pagination>li {
+    display: inline;
 }
