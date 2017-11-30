@@ -106,6 +106,17 @@
     src: url('../fonts/ClaireHandRegular.otf')
 }
 
+@font-face {
+  font-family: TiemposTextWeb-Regular;
+  src: url('../fonts/TiemposTextWeb-Regular.woff')
+
+}
+
+@font-face {
+    font-family: Benton Sans;
+    src: url('../fonts/BentonSans.otf');
+}
+
 #logo-wrap {
     font-family: WisdomScriptAJ;
     position: relative;
@@ -907,13 +918,6 @@ article{
 .nl-content-block, footer .content-block {
     position: initial;
     max-width: 1130px;
-}
-
-.content-block {
-    margin: 0 auto;
-    max-width: 1400px;
-    clear: both;
-    position: relative;
 }
 
 .ftnl-left {
