@@ -1,0 +1,42 @@
+.archive-post-author-bio {
+    border-bottom: 1px solid #e9edef;
+    border-top: 1px solid #e9edef;
+    margin-top: 20px;
+    padding: 20px 0px;
+    height: 117px;
+}
+
+.author-bio-avatar {
+    float: left;
+}
+
+.author-bio-avatar img {
+    border-radius: 50%;
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 32px;
+    font-family: "NuvoWeb";
+}
+
+.abt-text {
+    margin-top: 5px;
+    font-family: "Benton Sans";
+    font-size: 14px;
+}
+
+.author-bio-text {
+    font-size: 15px;
+    line-height: 24px;
+    float: left;
+    padding-left: 134px;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.archive-post-author-bio .author-bio-text {
+    float: none;
+}

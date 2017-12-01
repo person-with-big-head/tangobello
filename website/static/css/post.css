@@ -28,7 +28,6 @@ padding-left:60px; padding-right:60px;
 box-sizing:border-box;
 }
 
-
 #absap_125x125:after,
 #mighty-deals-chk-txt:after,
 .categories-page-wrap:after,
@@ -6689,8 +6688,8 @@ left:0;
     font-family: TiemposTextWeb-Regular;
 }
 
-.article-content h2 {
-    font-family: NuvoWeb;
+.article-content h2, .article-content h3, .article-content h4 {
+    font-family: Bushcraft;
 }
 
 .fb-stub {
@@ -6733,20 +6732,15 @@ margin: -1px;
 outline: none;
 padding: 0;
 text-shadow: 0 -1px 0 #354c8c;
-
 display: inline-block;
 height: 14px;
 width: 14px;
-
 position:absolute;
 left:4px; top:4px;
-
 background-size: 136px 178px;
 -webkit-background-size: 136px 178px;
 -moz-background-size: 136px 178px;
 background-position: 0 -26px;
-
-
 background-repeat: no-repeat;
 
 }
@@ -7196,7 +7190,7 @@ width: 2px!important;
    -ms-transition: 0.15s ease-in-out;
     -moz-transition: 0.15s ease-in-out;
     -o-transition: 0.15s ease-in-out;
-    transition: 0.15s ease-in-out
+    transition: 0.15s ease-in-out;
 
     -moz-transform: translateX(-20px);
     -webkit-transform: translateX(-20px);
@@ -7739,8 +7733,6 @@ background:#f6f6f6;
 
 #to-app-icon:before{
    -webkit-backface-visibility: hidden;
- 	-webkit-perspective: 1000;
-
    -webkit-transition: 0.5s ease-out;
    -ms-transition: 0.5s ease-out;
     -moz-transition: 0.5s ease-out;
@@ -9624,8 +9616,6 @@ text-shadow: 1px 1px rgba(0,255,0,0.5), -1px -1px rgba(255,0,0,0.5);
           -webkit-transition: all .4s ease-in-out;
           -moz-transition: all .4s ease-in-out;
           transition: all .4s ease-in-out;
-          -webkit-transform: ease-in-out;
-          transform: ease-in-out;
           opacity:0;
           -webkit-transform: translate3d(0,50px,0);
           -moz-transform: translate3d(0,50px,0);
@@ -10369,7 +10359,6 @@ margin-left:-29px;
     transform: translate3d(0, 0, 0);
     -webkit-transform: translate3d(0, 0, 0);
     -webkit-backface-visibility: hidden;
-    -webkit-perspective: 1000;
     top:-2px;
 
     box-shadow: 0 0 0px 10px #1c2227;
@@ -10446,44 +10435,4 @@ text-align:left;
     max-height:250px;
   }
 
-}
-
-
-/* ads */
-.bsa-cpc #_default_ {
-  position: relative;
-  display: flex;
-  margin: 2em 0;
-  font-size: 13px;
-  line-height: 1.5;
-  justify-content: center;
-}
-
-}
-
-.bsa-cpc .default-image img {
-  display: block;
-  float: left;
-  margin-right: 10px;
-  width: 36px;
-  border-radius: 7.5%;
-}
-
-.bsa-cpc .default-title,
-.bsa-cpc .default-description {
-  display: block;
-  margin-left: 46px;
-  max-width: calc(100% - 36px);
-}
-
-.bsa-cpc .default-title {
-  font-weight: 600;
-}
-
-@media only screen and (min-width: 320px) and (max-width: 759px) {
-  .bsa-cpc #_default_ {
-    flex-wrap: wrap;
-    margin: 0 0 .5em;
-    width: 100%;
-  }
 }

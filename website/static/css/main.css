@@ -67,43 +67,18 @@
 }
 
 @font-face {
-    font-family: Ostrich;
-    src: url('../fonts/OstrichSansInline.otf');
-}
-
-@font-face {
     font-family: NuvoWeb;
     src: url('../fonts/NuvoWeb.woff')
 }
 
 @font-face {
-    font-family: QuaverSans;
-    src: url('../fonts/QuaverSans.otf');
+    font-family: Benton Sans;
+    src: url('../fonts/BentonSans.otf');
 }
 
 @font-face {
-    font-family: QuaverSerif;
-    src: url('../fonts/QuaverSerif.otf');
-}
-
-@font-face {
-    font-family: Comfortaa-Bold;
-    src: url('../fonts/Comfortaa-Bold.ttf');
-}
-
-@font-face {
-    font-family: Comfortaa-Light;
-    src: url('../fonts/Comfortaa-Light.ttf');
-}
-
-@font-face {
-    font-family: Comfortaa-Regular;
-    src: url('../fonts/Comfortaa-Regular.ttf');
-}
-
-@font-face {
-    font-family: ClaireHandRegular ;
-    src: url('../fonts/ClaireHandRegular.otf')
+    font-family: Bushcraft;
+    src: url('../fonts/Bushcraft.otf')
 }
 
 @font-face {
@@ -112,10 +87,6 @@
 
 }
 
-@font-face {
-    font-family: Benton Sans;
-    src: url('../fonts/BentonSans.otf');
-}
 
 #logo-wrap {
     font-family: WisdomScriptAJ;
@@ -493,7 +464,7 @@ span.hm-lnk, a.hm-lnk {
 
 .hp-set-1 .article-hp-wdd:nth-child(1) .hp-article-title, .hp-set-3 .article-hp-wdd:nth-child(3) .hp-article-title {
     font-size: 36px;
-    font-family: "NuvoWeb";
+    font-family: "Bushcraft";
     padding-top: 0;
 }
 
@@ -659,7 +630,7 @@ article{
     font-size: 30px;
     line-height: 1.2em;
     position: relative;
-    font-family: NuvoWeb;
+    font-family: Bushcraft;
 }
 
 [data-tooltip]:not([data-tooltip=""]) {
@@ -686,7 +657,7 @@ article{
 .hp-excerpt {
     color: #777;
     margin-top: 15px;
-    font-size: 15px;
+    font-size: 14px;
     line-height: 20px;
     font-family: "Benton Sans";
 }
@@ -759,7 +730,7 @@ article{
     clear: both;
     text-align: center;
     margin-top: 20px;
-    font-family: NuvoWeb;
+    font-family: Bushcraft;
 }
 
 .paging-jump-form input, .pagination-block {

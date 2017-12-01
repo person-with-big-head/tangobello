@@ -19,6 +19,21 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 
+body {
+  position:absolute;
+  width:100%;
+  min-height:100%;
+  background: #dfe3e5;
+  color:#000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-family: "Benton Sans";
+  font-style: normal;
+  font-weight: normal;
+}
+
+
 li{
     list-style: none;
 }

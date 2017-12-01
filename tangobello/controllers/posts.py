@@ -22,9 +22,12 @@ def index():
     # get page number
     page_num = int(len(Posts.select(Posts.post_id)) / 10)
 
-    return {'article_list': post_serializer.dump(article_list, many=True).data,
-            'six_top_posts': post_serializer.dump(six_top_posts, many=True).data,
-            'current_page': 1, 'max_page': page_num}
+    return {
+        'article_list': post_serializer.dump(article_list, many=True).data,
+        'six_top_posts': post_serializer.dump(six_top_posts, many=True).data,
+        'current_page': 1,
+        'max_page': page_num
+    }
 
 
 @get('/posts/page/<page:int>', skip=[boilerplate_plugin])
@@ -48,9 +51,12 @@ def posts(page):
     # get page number
     page_num = int(len(Posts.select(Posts.post_id)) / 10)
 
-    return {'article_list': post_serializer.dump(article_list, many=True).data,
-            'six_top_posts': post_serializer.dump(six_top_posts, many=True).data,
-            'current_page': page, 'max_page': page_num}
+    return {
+        'article_list': post_serializer.dump(article_list, many=True).data,
+        'six_top_posts': post_serializer.dump(six_top_posts, many=True).data,
+        'current_page': page,
+        'max_page': page_num
+    }
 
 
 @get('/post/<post_id:int>', skip=[boilerplate_plugin])
@@ -63,4 +69,6 @@ def post(post_id):
 
     if not post_:
         abort(404, 'Page Not Found')
-    return {'post': post_serializer.dump(post_[0]).data}
+    return {
+        'post': post_serializer.dump(post_[0]).data
+    }

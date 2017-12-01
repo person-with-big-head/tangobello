@@ -1,0 +1,13 @@
+.archive-title, .search-title {
+    border-bottom: 1px solid #e9edef;
+    padding: 15px 0 20px;
+    font-family: NuvoWeb;
+}
+.line-title {
+    padding-bottom: 20px;
+    margin-bottom: 15px;
+}
+h1 {
+    font-size: 30px;
+    line-height: 32px;
+}

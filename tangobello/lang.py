@@ -5,16 +5,25 @@ from bottle import request
 
 class Lang(Enum):
     NOT_FOUND = (
-        '您请求的资源不存在',
-        'Data tidak ditemukan')
+        '啊哦，页面可能被怪物吃了:(',
+        '404',
+        'Don’t freak out... but we lost the page you were looking for :(')
 
     REQUEST_INVALID = (
-        '无效的请求',
-        'Permintaan tidak valid',
+        '好像漏了点什么，再仔细想想:(',
+        '400',
+        'Don’t freak out... but we lost the page you were looking for :(',
     )
 
-    def __init__(self, lang_zh, lang_id=''):
+    FORBIDDEN = (
+        '走到了禁地，换条路试试:(',
+        '403',
+        'Don’t freak out... but we lost the page you were looking for :(',
+    )
+
+    def __init__(self, lang_zh, code, lang_id=''):
         self.zh = lang_zh
+        self._code = code
         self.id = lang_id
         self.default = self.id
 
@@ -29,3 +38,7 @@ class Lang(Enum):
         if accept_language.startswith('id'):
             return self.id
         return self.default
+
+    @property
+    def code(self):
+        return self._code
