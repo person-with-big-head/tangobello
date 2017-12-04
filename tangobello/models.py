@@ -89,7 +89,25 @@ class Categories(ModelBase):
         db_table = 'categories'
 
 
-class Posts(ModelBase):
+class BasketArticleList(ModelBase):
+    post_id = BigIntegerField(primary_key=True)
+    post_date = DateTimeField()
+    post_status = CharField(max_length=20)
+    post_type = CharField(max_length=10)
+    is_top = BooleanField(default=0)
+    post_like_count = IntegerField(default=0)
+    post_comment_count = IntegerField(default=0)
+    author = ForeignKeyField(Authors)
+    category = ForeignKeyField(Categories)
+    article_title = TextField()
+    article_summary = TextField()
+    article_img_list = TextField()
+
+    class Meta:
+        db_table = 'basket_article_list'
+
+
+class PoolArticle(ModelBase):
     post_id = BigIntegerField(primary_key=True)
     post_date = DateTimeField()
     post_status = CharField(max_length=20)
@@ -99,12 +117,11 @@ class Posts(ModelBase):
     author = ForeignKeyField(Authors)
     category = ForeignKeyField(Categories)
     article_title = TextField()
-    article_summary = TextField()
     article_img_list = TextField()
     article_content = TextField()
 
     class Meta:
-        db_table = 'posts'
+        db_table = 'pool_article'
 
 
 class Tags(ModelBase):

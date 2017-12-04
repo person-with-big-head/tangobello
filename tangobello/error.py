@@ -7,7 +7,7 @@ from tangobello.utils import template
 from tangobello.lang import Lang
 
 
-@template('site/error.html')
+@template('error.html')
 def error_404_handler(error):
     print(error)
     return {'note': Lang.NOT_FOUND.auto, 'code': Lang.NOT_FOUND.code}
@@ -28,13 +28,13 @@ def error_500_handler(error):
         elif isinstance(exception, voluptuous.error.Invalid):
             errors = [exception]
 
-        @template('site/error.html')
+        @template('error.html')
         def error_400_handler():
             print(errors)
             return {'note': Lang.REQUEST_INVALID.auto, 'code': Lang.REQUEST_INVALID.code}
 
 
-@template('site/error.html')
+@template('error.html')
 def default_error_handle(error: bottle.HTTPError):
     print(error)
     return {'note': Lang.FORBIDDEN.auto, 'code': Lang.FORBIDDEN.code}

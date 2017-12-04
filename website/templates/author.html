@@ -5,71 +5,33 @@
     <title>Tangobello Blog</title>
     <link type="text/css"  rel="stylesheet" href="/static/css/main.css">
     <link type="text/css" rel="stylesheet" href="/static/css/normal.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/author.css">
     <script src="https://use.fontawesome.com/7d2e64164d.js"></script>
     <script src="/static/js/main.js"></script>
 </head>
 <body>
-{% include "site/header.html" %}
+{% include "header.html" %}
 <div id="content-wrap">
     <div id="content">
         <div class="content-block hp">
             <div id="wdd-articles">
-                <div class="hp-set-1 hp-set">
-
-                    <!-- six top articles -->
-                    {% for post in six_top_posts %}
-                        <article class="article-hp-wdd">
-                        <div class="article-hp-content">
-                            <a href="/post/{{ post.post_id }}" class="hp-wdd-img-lnk"></a>
-                            <div class="ahc-img" style="background-image: url(&quot;{{ post.article_img_list[0] }}&quot;); background-position: center 0%;">
-                                <img width="842" height="463" src="{{ post.article_img_list[0] }}"
-                                     class="hp-wdd-img wp-post-image" alt="{{ post.article_title }}"
-                                     sizes="(max-width: 842px) 100vw, 842px">
-                            </div>
-                            <div class="hp-article-info">
-                                <div class="hp-cat">
-                                    <a class="hp-category" href="/category/{{ post.category.category_name }}">
-                                        {{ post.category.category_name }}
-                                    </a>
-                                </div>
-                                <h2 class="hp-article-title">
-                                    <a href="/post/{{ post.post_id }}" class="anim-link">{{ post.article_title }}</a>
-                                </h2>
-                                <div class="hp-excerpt">
-                                    {{ post.article_summary }}
-                                </div>
-                                <div class="hp-post-pub-info">
-                                    <a class="haa-lnk" href="/author/{{ post.author.author_name }}">
-                                        <img src="{{ post.author.author_avatar }}" alt="{{ post.author.author_name }}" class="hpppi-author-avatar">
-                                    </a>
-                                    <span class="hpppi-author">
-                                        By <a href="/author/{{ post.author.author_name }}">{{ post.author.author_name }}</a>
-                                    </span>
-                                    <span class="hpppi-separator">•</span>
-                                    <span class="hppi-time">
-                                        <span class="icon-clock-1"></span>
-                                        15 hrs ago
-                                    </span>
-                                    <span class="hpppi-separator">•</span>
-                                    <span class="hp-inline-shr">
-                                        <span class="hpsi-row">
-                                            <i class="fa fa-qq" aria-hidden="true" style="color: #FAB23A;"></i>
-                                        </span>
-                                         <span class="hpsi-row">
-                                            <i class="fa fa-weixin" aria-hidden="true" style="color: #FAB23A;"></i>
-                                         </span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    {% endfor %}
-                    <!-- end six top articles -->
-
-                </div>
                 <div class="hp-left-c">
                     <!-- article list -->
                     <div class="article-hp-wdd-cls">
+                        <div class="archive-post-author-bio">
+                            <div class="author-bio-avatar">
+                                <img alt="" src="{{ author.author_avatar }}"
+                                     class="avatar avatar-114 photo" height="114" width="114">
+                            </div>
+                            <div class="author-bio-text">
+                                <h1 class="author-title">  Articles by
+                                    <span>{{ author.author_name }}</span>
+                                </h1>
+                                <div class="abt-text">
+                                   {{ author.author_description }}
+                                </div>
+                            </div>
+                        </div>
                         {% for post in article_list %}
                             <article class="article-hp-wdd-cl">
                             <div class="article-hp-cl-content">
@@ -78,7 +40,7 @@
                                 </a>
                                 <div class="hp-article-info">
                                     <div class="hp-cat">
-                                        <a class="hp-category" href="/category/{{ post.category.category_name }}/">{{ post.category.category_name }}</a>
+                                        <a class="hp-category" href="/category/{{ post.category.category_name }}">{{ post.category.category_name }}</a>
                                     </div>
                                     <h2 class="hp-article-title">
                                         <a href="/post/{{ post.post_id }}" class="anim-link">{{ post.article_title }}</a>
@@ -127,14 +89,14 @@
                             </li>
                             {% else %}
                             <li>
-                                <a href="/posts/page/{{ current_page - 1 }}" class="navbutton nb-prev">
+                                <a href="/author/{{ author.author_name }}/page/{{ current_page - 1 }}" class="navbutton nb-prev">
                                     <span><i class="fa fa-caret-left" aria-hidden="true"></i> Prev</span>
                                 </a>
                             </li>
                             {% endif %}
                             {% if current_page < max_page %}
                             <li>
-                                <a href="/posts/page/{{ current_page + 1 }}" class="navbutton nb-next">
+                                <a href="/author/{{ author.author_name }}/page/{{ current_page + 1 }}" class="navbutton nb-next">
                                     <span>Next <i class="fa fa-caret-right" aria-hidden="true"></i></span>
                                 </a>
                             </li>
@@ -162,20 +124,20 @@
             <a href="#main-header" class="scroll-to fxc-row"><i class="fa fa-arrow-up" title="Scroll to top"></i></span></a>
             <a href="#footer" class="fxc-row scroll-to"><i class="fa fa-arrow-down" title="Scroll to bottom"></i></a>
             {% if current_page == 1 %}
-            <a href="/posts/page/{{ current_page - 1 }}" class="disabled">
+            <a href="/author/{{ author.author_name }}/page/{{ current_page - 1 }}" class="disabled">
                 <i class="fa fa-arrow-left" title="Next page"></i>
             </a>
             {% else %}
-            <a href="/posts/page/{{ current_page - 1 }}" class="fxc-row">
+            <a href="/author/{{ author.author_name }}/page/{{ current_page - 1 }}" class="fxc-row">
                 <i class="fa fa-arrow-left" title="Next page"></i>
             </a>
             {% endif %}
             {% if current_page < max_page %}
-            <a href="/posts/page/{{ current_page + 1 }}" class="fxc-row">
+            <a href="/author/{{ author.author_name }}/page/{{ current_page + 1 }}" class="fxc-row">
                 <i class="fa fa-arrow-right" title="Next page"></i>
             </a>
             {% else %}
-            <a href="/posts/page/{{ current_page + 1 }}" class="disabled">
+            <a href="/author/{{ author.author_name }}/page/{{ current_page + 1 }}" class="disabled">
                 <i class="fa fa-arrow-right" title="Next page"></i>
             </a>
             {% endif %}
@@ -188,6 +150,6 @@
     <label></label>
     <span class="app-title"></span>
 </div>
-{% include "site/footer.html" %}
+{% include "footer.html" %}
 </body>
 </html>
