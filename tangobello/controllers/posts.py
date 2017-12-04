@@ -2,25 +2,25 @@ from bottle import get, redirect, abort
 
 from tangobello.utils import template
 from tangobello.plugins import boilerplate_plugin
-from tangobello.models import Posts, Authors, Categories
+from tangobello.models import BasketArticleList, PoolArticle, Authors, Categories
 from tangobello.serializers import post_serializer
 
 
 @get('/', skip=[boilerplate_plugin])
-@template('site/posts.html')
+@template('posts.html')
 def index():
     # get six top posts.
-    six_top_posts = (Posts.select().join(Authors, on=(Authors.author_id == Posts.author))
-                     .join(Categories, on=(Categories.category_id == Posts.category))
-                     .order_by(Posts.post_date).limit(6))
+    six_top_posts = (BasketArticleList.select().join(Authors, on=(Authors.author_id == BasketArticleList.author))
+                     .join(Categories, on=(Categories.category_id == BasketArticleList.category))
+                     .where(BasketArticleList.is_top == 1).order_by(BasketArticleList.post_date).limit(6))
 
     # get posts list.
-    article_list = (Posts.select().join(Authors, on=(Authors.author_id == Posts.author))
-                    .join(Categories, on=(Categories.category_id == Posts.category))
-                    .order_by(Posts.post_date).limit(10))
+    article_list = (BasketArticleList.select().join(Authors, on=(Authors.author_id == BasketArticleList.author))
+                    .join(Categories, on=(Categories.category_id == BasketArticleList.category))
+                    .order_by(BasketArticleList.post_date).limit(10))
 
     # get page number
-    page_num = int(len(Posts.select(Posts.post_id)) / 10)
+    page_num = int(len(BasketArticleList.select(BasketArticleList.post_id)) / 10)
 
     return {
         'article_list': post_serializer.dump(article_list, many=True).data,
@@ -31,7 +31,7 @@ def index():
 
 
 @get('/posts/page/<page:int>', skip=[boilerplate_plugin])
-@template('site/posts.html')
+@template('posts.html')
 def posts(page):
     # if get the first page of the posts,
     # redirect to the index page.
@@ -39,17 +39,17 @@ def posts(page):
         redirect('/')
 
     # get six top posts.
-    six_top_posts = (Posts.select().join(Authors, on=(Authors.author_id == Posts.author))
-                     .join(Categories, on=(Categories.category_id == Posts.category))
-                     .order_by(Posts.post_date).limit(6))
+    six_top_posts = (BasketArticleList.select().join(Authors, on=(Authors.author_id == BasketArticleList.author))
+                     .join(Categories, on=(Categories.category_id == BasketArticleList.category))
+                     .where(BasketArticleList.is_top == 1).order_by(BasketArticleList.post_date).limit(6))
 
     # get current page posts.
-    article_list = (Posts.select().join(Authors, on=(Authors.author_id == Posts.author))
-                    .join(Categories, on=(Categories.category_id == Posts.category))
-                    .order_by(Posts.post_date).paginate(page, 10))
+    article_list = (BasketArticleList.select().join(Authors, on=(Authors.author_id == BasketArticleList.author))
+                    .join(Categories, on=(Categories.category_id == BasketArticleList.category))
+                    .order_by(BasketArticleList.post_date).paginate(page, 10))
 
     # get page number
-    page_num = int(len(Posts.select(Posts.post_id)) / 10)
+    page_num = int(len(BasketArticleList.select(BasketArticleList.post_id)) / 10)
 
     return {
         'article_list': post_serializer.dump(article_list, many=True).data,
@@ -60,12 +60,12 @@ def posts(page):
 
 
 @get('/post/<post_id:int>', skip=[boilerplate_plugin])
-@template('site/post.html')
+@template('post.html')
 def post(post_id):
     # get the post by id from db.
-    post_ = (Posts.select().join(Authors, on=(Authors.author_id == Posts.author))
-             .join(Categories, on=(Categories.category_id == Posts.category))
-             .where(Posts.post_id == post_id))
+    post_ = (PoolArticle.select().join(Authors, on=(Authors.author_id == PoolArticle.author))
+             .join(Categories, on=(Categories.category_id == PoolArticle.category))
+             .where(PoolArticle.post_id == post_id))
 
     if not post_:
         abort(404, 'Page Not Found')

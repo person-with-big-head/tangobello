@@ -10,7 +10,7 @@
     <script src="/static/js/main.js"></script>
 </head>
 <body>
-{% include "site/header.html" %}
+{% include "header.html" %}
 <div id="content-wrap">
     <div id="content">
         <div class="content-block hp">
@@ -78,14 +78,14 @@
                             </li>
                             {% else %}
                             <li>
-                                <a href="/posts/page/{{ current_page - 1 }}" class="navbutton nb-prev">
+                                <a href="/category/{{ category.category_name }}/page/{{ current_page - 1 }}" class="navbutton nb-prev">
                                     <span><i class="fa fa-caret-left" aria-hidden="true"></i> Prev</span>
                                 </a>
                             </li>
                             {% endif %}
                             {% if current_page < max_page %}
                             <li>
-                                <a href="/posts/page/{{ current_page + 1 }}" class="navbutton nb-next">
+                                <a href="/category/{{ category.category_name }}/page/{{ current_page + 1 }}" class="navbutton nb-next">
                                     <span>Next <i class="fa fa-caret-right" aria-hidden="true"></i></span>
                                 </a>
                             </li>
@@ -113,20 +113,20 @@
             <a href="#main-header" class="scroll-to fxc-row"><i class="fa fa-arrow-up" title="Scroll to top"></i></span></a>
             <a href="#footer" class="fxc-row scroll-to"><i class="fa fa-arrow-down" title="Scroll to bottom"></i></a>
             {% if current_page == 1 %}
-            <a href="/posts/page/{{ current_page - 1 }}" class="disabled">
+            <a href="/category/{{ category.category_name }}/page/{{ current_page - 1 }}" class="disabled">
                 <i class="fa fa-arrow-left" title="Next page"></i>
             </a>
             {% else %}
-            <a href="/posts/page/{{ current_page - 1 }}" class="fxc-row">
+            <a href="/category/{{ category.category_name }}/page/{{ current_page - 1 }}" class="fxc-row">
                 <i class="fa fa-arrow-left" title="Next page"></i>
             </a>
             {% endif %}
             {% if current_page < max_page %}
-            <a href="/posts/page/{{ current_page + 1 }}" class="fxc-row">
+            <a href="/category/{{ category.category_name }}/page/{{ current_page + 1 }}" class="fxc-row">
                 <i class="fa fa-arrow-right" title="Next page"></i>
             </a>
             {% else %}
-            <a href="/posts/page/{{ current_page + 1 }}" class="disabled">
+            <a href="/category/{{ category.category_name }}/page/{{ current_page + 1 }}" class="disabled">
                 <i class="fa fa-arrow-right" title="Next page"></i>
             </a>
             {% endif %}
@@ -139,6 +139,6 @@
     <label></label>
     <span class="app-title"></span>
 </div>
-{% include "site/footer.html" %}
+{% include "footer.html" %}
 </body>
 </html>
