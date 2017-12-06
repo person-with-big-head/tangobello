@@ -1,3 +1,4 @@
+import math
 from bottle import get, redirect
 
 from tangobello.models import BasketArticleList, Authors, Categories
@@ -23,7 +24,7 @@ def author(author_name):
         post.author = author_info
 
     # get page number
-    page_num = int(len(BasketArticleList.select(BasketArticleList.post_id)) / 10)
+    page_num = math.ceil(len(BasketArticleList.select(BasketArticleList.post_id)) / 10)
 
     return {
         'article_list': post_serializer.dump(article_list, many=True).data,
@@ -51,7 +52,7 @@ def author(author_name, page):
         post.author = author_info
 
     # get page number
-    page_num = int(len(BasketArticleList.select(BasketArticleList.post_id)) / 10)
+    page_num = math.ceil(len(BasketArticleList.select(BasketArticleList.post_id)) / 10)
 
     return {
         'article_list': post_serializer.dump(article_list, many=True).data,

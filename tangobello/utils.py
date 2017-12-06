@@ -9,6 +9,8 @@ from bottle import jinja2_view
 
 from tangobello import snowflake
 
+from bs4 import BeautifulSoup
+
 
 def _plain_args(d, list_fields=None):
     list_fields = list_fields or ()
@@ -102,7 +104,12 @@ def dt_ceiling(dt):
     return dt.replace(hour=23, minute=59, second=59, microsecond=0)
 
 
-number_strip_re = re.compile(r'\d+')
+def get_text_from_tag(html_src):
+    soup = BeautifulSoup(html_src)
+    all_text = ''.join(soup.findAll(text=True))
+    return all_text
 
+
+number_strip_re = re.compile(r'\d+')
 
 template = functools.partial(jinja2_view, template_lookup=['../website/templates'])

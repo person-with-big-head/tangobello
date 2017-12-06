@@ -1,3 +1,4 @@
+import math
 from bottle import get, redirect
 
 from tangobello.models import BasketArticleList, Authors, Categories
@@ -21,7 +22,7 @@ def category(category_name):
         post.category = category_info
 
     # get page number
-    page_num = int(len(BasketArticleList.select(BasketArticleList.post_id)) / 10)
+    page_num = math.ceil(len(BasketArticleList.select(BasketArticleList.post_id)) / 10)
     #
     return {
         'article_list': post_serializer.dump(article_list, many=True).data,
@@ -48,7 +49,7 @@ def category(category_name, page):
         post.category = category_info
 
     # get page number
-    page_num = int(len(BasketArticleList.select(BasketArticleList.post_id)) / 10)
+    page_num = math.ceil(len(BasketArticleList.select(BasketArticleList.post_id)) / 10)
     #
     return {
         'article_list': post_serializer.dump(article_list, many=True).data,
