@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tangobello Blog</title>
+    <link type="text/css"  rel="stylesheet" href="/static/css/main.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/normal.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/search.css">
+    <script src="https://use.fontawesome.com/7d2e64164d.js"></script>
+    <script src="/static/js/main.js"></script>
+</head>
+<body>
+{% include "header.html" %}
+<div id="content-wrap">
+	<div id="content">
+	<!-- search -->
+		<div class="content-block hp">
+	        <div class="index-middle">
+	        	<div class="searchBar">
+		        	<form name="searchForm" method="GET" action="/search">
+		        		<div class="y-box"> 
+		        			<div class="y-left search-content"> 
+		        				<input type="text" autocomplete="off" placeholder="so的一声你就知道了" name="keyword">
+		        			</div>
+		        			<div class="y-right">
+		        				<button type="submit" class="search-btn">
+									Search
+								</button>
+		        			</div> 
+		        		</div>
+		        	</form>
+		        </div>
+		        <div class="tabBar">
+		        	<ul class="y-box tab-list">
+		        		<li class="y-left tab-item active"> 最近 </li>
+		        		<li class="y-left tab-item"> 最相关 </li>
+		        		<li class="y-left tab-item "> 评论最多 </li>
+		        		<li class="y-left tab-item "> 喜欢最多 </li>
+		        	</ul>
+		        </div>
+		        {% if not posts %}
+		        <div riot-tag="feedBox" class="feedBox">
+		        	<div name="feedBox">
+		        		<div class="sections"></div>  
+		        		<div class="no-feed"> 
+		        			<div class="empty-img"> 
+		        				<img src="/static/images/search_bg.png" alt="">
+		        			</div> 
+		        			<p>没有呢，我去银河系看看?</p> 
+		        		</div> 
+		        	</div>
+		        </div>
+		        {% else %}
+		        <div riot-tag="feedBox" class="feedBox">
+		        	<div name="feedBox">
+		        		<div class="sections">
+							{% for post in posts %}
+		        			<div riot-tag="articleCard" class="articleCard">
+		        				<div class="item" ga_event="_item_click"> 
+		        					<div class="item-inner  y-box"> 
+		        						<div class="normal rbox "> 
+		        							<div class="rbox-inner"> 
+		        								<div class="title-box">
+		        									<a class="link title" target="_blank" href="/post/{{ post['_id'] }}">
+		        										<span class="J_title" riot-tag="raw">
+		        											{{ post['_source']['article_title'] }}
+		        										</span> 
+		        									</a> 
+		        								</div>  
+		        								<div class="y-box footer">
+		        								 <div class="y-left">  
+		        								 	<div class="y-left"> 
+		        								 		<a class="lbtn media-avatar" target="_blank" href="/author/{{ post['_source']['author_name'] }}">
+		        								 			<img alt="" src="{{ post['_source']['author_avatar'] }}">
+		        								 		</a> 
+		        								 		<a class="lbtn source J_source" target="_blank" href="/author/{{ post['_source']['author_name'] }}">
+															&nbsp;{{ post['_source']['author_name'] }}&nbsp;
+														</a>
+		        								 	</div> 
+		        								 	<a class="lbtn comment" target="_blank" href="#">
+		        								 	⋅&nbsp;{{ post['_source']['post_comment_count'] }} comments&nbsp;</a>
+		        								 	<span class="lbtn">⋅&nbsp;10 hrs </span>
+		        								 </div> 
+		        								</div> 
+		        							</div> 
+		        						</div> 
+		        						<div class="lbox">
+		        							<a class="img-wrap" target="_blank" href="/post/{{ post['_id'] }}">
+		        								<img alt="" src="{{ post['_source']['article_img_list'][0] }}" width="156px" height="100px">
+		        							</a>
+		        						</div>
+		        					</div> 
+		        				</div>
+		        			</div>
+							{% endfor %}
+		        		</div>
+		        	</div>
+		        </div>
+		        {% endif %}
+	        </div>
+		</div>
+	</div>
+</div>
+{% include "footer.html" %}
+</body>
+</html>
