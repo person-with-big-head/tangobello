@@ -18,15 +18,19 @@
 	        <div class="index-middle">
 	        	<div class="searchBar">
 		        	<form name="searchForm" method="GET" action="/search">
-		        		<div class="y-box"> 
-		        			<div class="y-left search-content"> 
+		        		<div class="y-box">
+		        			<div class="y-left search-content">
+		        			{% if not search_keyword %}
 		        				<input type="text" autocomplete="off" placeholder="so的一声你就知道了" name="keyword">
+		        			{% else %}
+		        				<input type="text" autocomplete="off" placeholder="{{ search_keyword }}" name="keyword">
+		        			{% endif %}
 		        			</div>
 		        			<div class="y-right">
 		        				<button type="submit" class="search-btn">
 									Search
 								</button>
-		        			</div> 
+		        			</div>
 		        		</div>
 		        	</form>
 		        </div>
@@ -41,13 +45,13 @@
 		        {% if not posts %}
 		        <div riot-tag="feedBox" class="feedBox">
 		        	<div name="feedBox">
-		        		<div class="sections"></div>  
-		        		<div class="no-feed"> 
-		        			<div class="empty-img"> 
+		        		<div class="sections"></div>
+		        		<div class="no-feed">
+		        			<div class="empty-img">
 		        				<img src="/static/images/search_bg.png" alt="">
-		        			</div> 
-		        			<p>没有呢，我去银河系看看?</p> 
-		        		</div> 
+		        			</div>
+		        			<p>地球上没有呢，我去银河系看看?</p>
+		        		</div>
 		        	</div>
 		        </div>
 		        {% else %}
@@ -56,40 +60,50 @@
 		        		<div class="sections">
 							{% for post in posts %}
 		        			<div riot-tag="articleCard" class="articleCard">
-		        				<div class="item" ga_event="_item_click"> 
-		        					<div class="item-inner  y-box"> 
-		        						<div class="normal rbox "> 
-		        							<div class="rbox-inner"> 
+		        				<div class="item" ga_event="_item_click">
+		        					<div class="item-inner  y-box">
+		        						<div class="normal rbox ">
+		        							<div class="rbox-inner">
 		        								<div class="title-box">
 		        									<a class="link title" target="_blank" href="/post/{{ post['_id'] }}">
 		        										<span class="J_title" riot-tag="raw">
 		        											{{ post['_source']['article_title'] }}
-		        										</span> 
-		        									</a> 
-		        								</div>  
+		        										</span>
+		        									</a>
+		        								</div>
+		        								<div class="content-summary">
+		        									{{ post['_source']['article_summary'] }}...
+		        								</div>
 		        								<div class="y-box footer">
-		        								 <div class="y-left">  
-		        								 	<div class="y-left"> 
+		        								 <div class="y-left">
+		        								 	<div class="y-left">
 		        								 		<a class="lbtn media-avatar" target="_blank" href="/author/{{ post['_source']['author_name'] }}">
 		        								 			<img alt="" src="{{ post['_source']['author_avatar'] }}">
-		        								 		</a> 
-		        								 		<a class="lbtn source J_source" target="_blank" href="/author/{{ post['_source']['author_name'] }}">
+		        								 		</a>
+		        								 		<a class="lbtn source J_source" target="_blank" href="/author/{{ post['_source']['author_name'] }}" style="color: #0c7fd7;">
 															&nbsp;{{ post['_source']['author_name'] }}&nbsp;
 														</a>
-		        								 	</div> 
+		        								 	</div>
 		        								 	<a class="lbtn comment" target="_blank" href="#">
-		        								 	⋅&nbsp;{{ post['_source']['post_comment_count'] }} comments&nbsp;</a>
-		        								 	<span class="lbtn">⋅&nbsp;10 hrs </span>
-		        								 </div> 
-		        								</div> 
-		        							</div> 
-		        						</div> 
+		        								 		· <i class="fa fa-comments" aria-hidden="true"></i>&nbsp;
+		        								 	</a>
+		        								 	<span class="lbtn">
+		        								 		&nbsp;{{ post['_source']['post_comment_count'] }}
+		        								 		· &nbsp;<i class="fa fa-heart" aria-hidden="true"></i>
+		        								 		&nbsp;{{ post['_source']['post_like_count'] }}
+		        								 		· &nbsp;<i class="fa fa-calendar" aria-hidden="true"></i>
+		        								 		&nbsp; Jan 2rd
+		        								 	</span>
+		        								 </div>
+		        								</div>
+		        							</div>
+		        						</div>
 		        						<div class="lbox">
 		        							<a class="img-wrap" target="_blank" href="/post/{{ post['_id'] }}">
 		        								<img alt="" src="{{ post['_source']['article_img_list'][0] }}" width="156px" height="100px">
 		        							</a>
 		        						</div>
-		        					</div> 
+		        					</div>
 		        				</div>
 		        			</div>
 							{% endfor %}
@@ -98,7 +112,76 @@
 		        </div>
 		        {% endif %}
 	        </div>
+	        <div class="pagination-wrap">
+	        		{% if max_page > 1 %}
+                    <!-- pagination -->
+                    <div class="pagination-block">
+                        <ul class="pagination">
+                            {% if current_page == 1 %}
+                            <li class="disabled">
+                                <a href="#" class="navbutton nb-prev">
+                                    <span><i class="fa fa-caret-left" aria-hidden="true"></i> Prev</span>
+                                </a>
+                            </li>
+                            {% else %}
+                            <li>
+                                <a href="/search?keyword={{ search_keyword }}&page={{ current_page - 1 }}"
+                                class="navbutton nb-prev">
+                                    <span><i class="fa fa-caret-left" aria-hidden="true"></i> Prev</span>
+                                </a>
+                            </li>
+                            {% endif %}
+                            {% if current_page < max_page %}
+                            <li>
+                                <a href="/search?keyword={{ search_keyword }}&page={{ current_page + 1 }}"
+                                class="navbutton nb-next">
+                                    <span>Next <i class="fa fa-caret-right" aria-hidden="true"></i></span>
+                                </a>
+                            </li>
+                            {% else %}
+                            <li class="disabled">
+                                <a href="#" class="navbutton nb-next">
+                                    <span>Next <i class="fa fa-caret-right" aria-hidden="true"></i></span>
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                        <form class="paging-jump-form" action="/" method="get">
+                            <span>Page</span>
+                            <input type="text" name="paged" value="{{ current_page }}">
+                            <span>of {{ max_page }}</span>
+                        </form>
+                    </div>
+                    {% endif %}
+                    <!-- end pagination -->
+                </div>
 		</div>
+		<!-- shortcut of pagination -->
+        <div id="fixed-controls">
+            <a href="#main-header" class="scroll-to fxc-row">
+            <i class="fa fa-arrow-up" title="Scroll to top"></i>
+            </a>
+            <a href="#footer" class="fxc-row scroll-to"><i class="fa fa-arrow-down" title="Scroll to bottom"></i></a>
+            {% if current_page == 1 %}
+            <a href="/search?keyword={{ search_keyword }}&page={{ current_page - 1 }}" class="disabled">
+                <i class="fa fa-arrow-left" title="Next page"></i>
+            </a>
+            {% else %}
+            <a href="/search?keyword={{ search_keyword }}&page={{ current_page - 1 }}" class="fxc-row">
+                <i class="fa fa-arrow-left" title="Next page"></i>
+            </a>
+            {% endif %}
+            {% if current_page < max_page %}
+            <a href="/search?keyword={{ search_keyword }}&page={{ current_page + 1 }}" class="fxc-row">
+                <i class="fa fa-arrow-right" title="Next page"></i>
+            </a>
+            {% else %}
+            <a href="/search?keyword={{ search_keyword }}&page={{ current_page + 1 }}" class="disabled">
+                <i class="fa fa-arrow-right" title="Next page"></i>
+            </a>
+            {% endif %}
+        </div>
+        <!-- end shortcut of pagination -->
 	</div>
 </div>
 {% include "footer.html" %}

@@ -1,3 +1,4 @@
+import math
 from bottle import get, redirect, abort
 
 from tangobello.utils import template
@@ -17,10 +18,10 @@ def index():
     # get posts list.
     article_list = (BasketArticleList.select().join(Authors, on=(Authors.author_id == BasketArticleList.author))
                     .join(Categories, on=(Categories.category_id == BasketArticleList.category))
-                    .order_by(BasketArticleList.post_date).limit(10))
+                    .where(BasketArticleList.is_top == 0).order_by(BasketArticleList.post_date).limit(10))
 
     # get page number
-    page_num = int(len(BasketArticleList.select(BasketArticleList.post_id)) / 10)
+    page_num = math.ceil(len(BasketArticleList.filter(BasketArticleList.is_top == 0)) / 10)
 
     return {
         'article_list': post_serializer.dump(article_list, many=True).data,
@@ -46,10 +47,10 @@ def posts(page):
     # get current page posts.
     article_list = (BasketArticleList.select().join(Authors, on=(Authors.author_id == BasketArticleList.author))
                     .join(Categories, on=(Categories.category_id == BasketArticleList.category))
-                    .order_by(BasketArticleList.post_date).paginate(page, 10))
+                    .where(BasketArticleList.is_top == 0).order_by(BasketArticleList.post_date).paginate(page, 10))
 
     # get page number
-    page_num = int(len(BasketArticleList.select(BasketArticleList.post_id)) / 10)
+    page_num = math.ceil(len(BasketArticleList.filter(BasketArticleList.is_top == 0)) / 10)
 
     return {
         'article_list': post_serializer.dump(article_list, many=True).data,

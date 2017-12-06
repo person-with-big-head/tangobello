@@ -36,7 +36,7 @@
     width: 100px;
     background: #FAB23A;
     font-size: 16px;
-    line-height: 38px;
+    line-height: 39px;
     text-align: center;
     color: #fff;
     border-radius: 0 4px 4px 0;
@@ -120,8 +120,8 @@
 
 .articleCard .normal.rbox {
     float: right;
-    height: 102px;
-    width: 530px;
+    height: 142px;
+    width: 450px;
 }
 
 .articleCard .normal {
@@ -162,13 +162,6 @@
     height: 18px;
     line-height: 18px;
     margin-top: 10px;
-}
-
-.articleCard .lbtn {
-    float: left;
-    display: inline-block;
-    color: #777;
-    font-size: 14px;
 }
 
 .articleCard .lbtn.media-avatar {
@@ -252,9 +245,48 @@ a, button {
 
 .articleCard .lbox .img-wrap {
     display: block;
-    width: 156px;
-    height: 100px;
+    width: 229px;
+    height: 142px;
     border: 1px solid #e8e8e8;
     background: #e8e8e8;
     overflow: hidden;
+}
+
+.J_title{
+    font-family: Bushcraft;
+}
+
+.content-summary{
+    font-size: 14px;
+    font-family: "Benton Sans";
+    height: 60px;
+    color: #777;
+    line-height: 20px;
+    text-overflow:ellipsis;
+    overflow: hidden;
+}
+
+.fa-heart{
+    color: #b4b4b4;
+}
+
+.fa-heart:hover{
+    color: #ED4040;
+    cursor: pointer;
+}
+
+.fa-comments{
+    color: #b4b4b4;
+}
+
+.fa-comments:hover{
+    color: #0A7ABE;
+}
+
+.fa-calendar{
+    color: #b4b4b4;
+}
+
+.fa-calendar:hover{
+    color: #FC9E00;
 }
