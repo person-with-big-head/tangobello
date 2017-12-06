@@ -1,0 +1,260 @@
+.index-middle{
+	width: 700px;
+    min-height: 800px;
+    margin-left: 20px;
+    margin: 0 auto;
+}
+
+.search-content {
+    width: 600px;
+    height: 40px;
+    padding: 0 16px;
+    background-color: #fff;
+    border: 1px solid #FAB23A;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 4px 0 0 4px;
+}
+
+.searchBar{
+	padding: 0;
+	margin: 0;
+	height: 40px;
+}
+
+.y-left {
+    float: left;
+}
+
+.y-right {
+    float: right;
+}
+
+.search-btn {
+    outline: 0;
+    border: 0;
+    width: 100px;
+    background: #FAB23A;
+    font-size: 16px;
+    line-height: 38px;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+}
+
+.search-content input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+    height: 16px;
+    line-height: 16px;
+    background-color: #fff;
+    padding: 11px 0;
+    color: #222;
+}
+
+.searchBar {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.tabBar {
+    font-size: 16px;
+    color: #222;
+    margin-bottom: 16px;
+    font-family: 楷体;
+    height: 8px;
+}
+
+.tabBar .tab-list .tab-item.active {
+    color: #FAB23A;
+    cursor: default;
+}
+
+.tabBar .tab-list .tab-item {
+    margin-right: 33px;
+    cursor: pointer;
+}
+
+.no-feed {
+    background-color: #fff;
+    min-height: 320px;
+}
+
+.no-feed .empty-img {
+    margin: 0 auto;
+    width: 167px;
+    height: 74px;
+    padding-top: 110px;
+}
+
+.no-feed .empty-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.feedBox .no-feed p {
+    margin-top: 24px;
+    font-size: 14px;
+    color: #999;
+    text-align: center;
+}
+
+.articleCard {
+    position: relative;
+    background: #FFF;
+    /*padding: 0 20px;*/
+}
+
+.articleCard .item {
+    position: relative;
+}
+
+.articleCard .item-inner {
+    position: relative;
+    padding: 10px 0;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.articleCard .normal.rbox {
+    float: right;
+    height: 102px;
+    width: 530px;
+}
+
+.articleCard .normal {
+    position: relative;
+    font-size: 0;
+    overflow: hidden;
+}
+
+.articleCard .lbox {
+    position: relative;
+    float: left;
+}
+
+.articleCard .normal .rbox-inner {
+    display: inline-block;
+    width: 100%;
+    vertical-align: middle;
+}
+
+.articleCard .title-box {
+    display: block;
+    font-size: 20px;
+    color: #000042;
+    line-height: 1.3;
+    margin-bottom: 4px;
+    font-weight: 700;
+    max-height: 52px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.articleCard .footer {
+    font-size: 12px;
+    color: #999;
+    height: 18px;
+    line-height: 18px;
+    margin-top: 10px;
+}
+
+.articleCard .lbtn {
+    float: left;
+    display: inline-block;
+    color: #777;
+    font-size: 14px;
+}
+
+.articleCard .lbtn.media-avatar {
+    position: relative;
+    color: #fff;
+    margin-right: 2px;
+    width: 18px;
+    height: 18px;
+    line-height: 17px;
+    text-align: center;
+    font-size: 12px;
+    border-radius: 50%;
+    background-color: #eee;
+    overflow: hidden;
+}
+
+.articleCard .lbtn.media-avatar>img {
+    width: 100%;
+    height: 100%;
+}
+
+.articleCard .lbtn {
+    float: left;
+    display: inline-block;
+    color: #777;
+    font-size: 14px;
+}
+
+.articleCard .lbox .img-wrap>img {
+    width: 100%;
+    height: 100%;
+}
+
+.articleCard .img-wrap img {
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all .5s ease-out .1s;
+    transition: all .5s ease-out .1s;
+}
+
+.articleCard .link:visited {
+    color: #999;
+}
+
+.articleCard .title-box a {
+    color: #222;
+}
+
+.articleCard .link {
+    color: #4f5157;
+}
+
+a:visited {
+    color: #999;
+}
+
+a {
+    color: #222;
+}
+
+a, a:hover, del, ins, s, u {
+    text-decoration: none;
+}
+
+a, button {
+    cursor: pointer;
+}
+
+.highlight {
+    color: #ed4040;
+    font-weight: inherit;
+}
+
+.y-box:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    clear: both;
+    overflow: hidden;
+}
+
+.articleCard .lbox .img-wrap {
+    display: block;
+    width: 156px;
+    height: 100px;
+    border: 1px solid #e8e8e8;
+    background: #e8e8e8;
+    overflow: hidden;
+}
