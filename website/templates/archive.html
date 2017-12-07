@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tangobello Blog</title>
+    <link type="text/css"  rel="stylesheet" href="/static/css/main.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/normal.css">
+    <link type="text/css" rel="stylesheet" href="/static/css/category.css">
+    <script src="https://use.fontawesome.com/7d2e64164d.js"></script>
+    <script src="/static/js/main.js"></script>
+</head>
+<body>
+{% include "header.html" %}
+<div id="content-wrap">
+    <div id="content">
+        <div class="content-block hp">
+            <div id="wdd-articles">
+                <div class="hp-left-c">
+                    <!-- article list -->
+                    <div class="article-hp-wdd-cls">
+                        <h1 class="page-title archive-title line-title">
+                            archive {{ archive }}
+			            </h1>
+                        {% for post in article_list %}
+                            <article class="article-hp-wdd-cl">
+                            <div class="article-hp-cl-content">
+                                <a href="/post/{{ post.post_id }}" class="hp-wdd-img-lnk" style="background-image: url(&quot;{{ post.article_img_list[0] }}&quot;); background-position: center 35.7%;">
+                                    <img width="842" height="463" src="{{ post.article_img_list[0] }}" class="hp-wdd-img wp-post-image" alt="{{ post.article_title }}">
+                                </a>
+                                <div class="hp-article-info">
+                                    <div class="hp-cat">
+                                        <a class="hp-category" href="/category/{{ post.category.category_name }}/">{{ post.category.category_name }}</a>
+                                    </div>
+                                    <h2 class="hp-article-title">
+                                        <a href="/post/{{ post.post_id }}" class="anim-link">{{ post.article_title }}</a>
+                                    </h2>
+                                    <div class="hp-excerpt">
+                                        {{ post.article_summary }}...
+                                    </div>
+                                    <div class="hp-post-pub-info">
+                                        <a class="haa-lnk" href="/author/{{ post.author.author_name }}">
+                                            <img src="{{ post.author.author_avatar }}" alt="{{ post.author.author_name }}" class="hpppi-author-avatar">
+                                        </a>
+                                        <span class="hpppi-author">
+                                            By <a href="/author/{{ post.author.author_name }}">{{ post.author.author_name }}</a>
+                                            <span class="hpppi-separator">•</span>
+                                        </span>
+                                        <span class="hppi-time">
+                                            <span class="icon-clock-1"></span>
+                                            7 days ago
+                                        </span>
+                                        <span class="hpppi-separator">•</span>
+                                        <span class="hp-inline-shr">
+                                            <span class="hpsi-row">
+                                                <i class="fa fa-qq" aria-hidden="true" style="color: #FAB23A;"></i>
+                                            </span>
+                                             <span class="hpsi-row">
+                                                <i class="fa fa-weixin" aria-hidden="true" style="color: #FAB23A;"></i>
+                                             </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        {% endfor %}
+                        <!-- end article list -->
+                    </div>
+                </div>
+                <div class="pagination-wrap">
+                    <!-- pagination -->
+                    {% if max_page > 1 %}
+                    <div class="pagination-block">
+                        <ul class="pagination">
+                            {% if current_page == 1 %}
+                            <li class="disabled">
+                                <a href="#" class="navbutton nb-prev">
+                                    <span><i class="fa fa-caret-left" aria-hidden="true"></i> Prev</span>
+                                </a>
+                            </li>
+                            {% else %}
+                            <li>
+                                <a href="/archive/{{ archive }}/page/{{ current_page - 1 }}" class="navbutton nb-prev">
+                                    <span><i class="fa fa-caret-left" aria-hidden="true"></i> Prev</span>
+                                </a>
+                            </li>
+                            {% endif %}
+                            {% if current_page < max_page %}
+                            <li>
+                                <a href="/archive/{{ archive }}/page/{{ current_page + 1 }}" class="navbutton nb-next">
+                                    <span>Next <i class="fa fa-caret-right" aria-hidden="true"></i></span>
+                                </a>
+                            </li>
+                            {% else %}
+                            <li class="disabled">
+                                <a href="#" class="navbutton nb-next">
+                                    <span>Next <i class="fa fa-caret-right" aria-hidden="true"></i></span>
+                                </a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                        <form class="paging-jump-form" action="/" method="get">
+                            <span>Page</span>
+                            <input type="text" name="paged" value="{{ current_page }}">
+                            <span>of {{ max_page }}</span>
+                        </form>
+                    </div>
+                    {% endif %}
+                    <!-- end pagination -->
+                </div>
+            </div>
+        </div>
+
+        <!-- shortcut of pagination -->
+        <div id="fixed-controls">
+            <a href="#main-header" class="scroll-to fxc-row"><i class="fa fa-arrow-up" title="Scroll to top"></i></a>
+            <a href="#footer" class="fxc-row scroll-to"><i class="fa fa-arrow-down" title="Scroll to bottom"></i></a>
+            {% if current_page == 1 %}
+            <a href="/archive/{{ archive }}/page/{{ current_page - 1 }}" class="disabled">
+                <i class="fa fa-arrow-left" title="Next page"></i>
+            </a>
+            {% else %}
+            <a href="/archive/{{ archive }}/page/{{ current_page - 1 }}" class="fxc-row">
+                <i class="fa fa-arrow-left" title="Next page"></i>
+            </a>
+            {% endif %}
+            {% if current_page < max_page %}
+            <a href="/archive/{{ archive }}/page/{{ current_page + 1 }}" class="fxc-row">
+                <i class="fa fa-arrow-right" title="Next page"></i>
+            </a>
+            {% else %}
+            <a href="/archive/{{ archive }}/page/{{ current_page + 1 }}" class="disabled">
+                <i class="fa fa-arrow-right" title="Next page"></i>
+            </a>
+            {% endif %}
+        </div>
+        <!-- end shortcut of pagination -->
+    </div>
+</div>
+<div id="icon-preloader">
+    <label></label>
+    <span class="app-title"></span>
+</div>
+{% include "footer.html" %}
+</body>
+</html>
