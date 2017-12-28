@@ -1,4 +1,5 @@
 import os
+import uuid
 from enum import Enum
 
 import re
@@ -8,8 +9,6 @@ import functools
 from bottle import jinja2_view
 
 from tangobello import snowflake
-
-from bs4 import BeautifulSoup
 
 
 def _plain_args(d, list_fields=None):
@@ -104,10 +103,8 @@ def dt_ceiling(dt):
     return dt.replace(hour=23, minute=59, second=59, microsecond=0)
 
 
-def get_text_from_tag(html_src):
-    soup = BeautifulSoup(html_src)
-    all_text = ''.join(soup.findAll(text=True))
-    return all_text
+def short_uuid():
+    return str(uuid.uuid1())[0:8]
 
 
 number_strip_re = re.compile(r'\d+')
