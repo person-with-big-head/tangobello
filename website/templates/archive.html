@@ -24,8 +24,8 @@
                         {% for post in article_list %}
                             <article class="article-hp-wdd-cl">
                             <div class="article-hp-cl-content">
-                                <a href="/post/{{ post.post_id }}" class="hp-wdd-img-lnk" style="background-image: url(&quot;{{ post.article_img_list[0] }}&quot;); background-position: center 35.7%;">
-                                    <img width="842" height="463" src="{{ post.article_img_list[0] }}" class="hp-wdd-img wp-post-image" alt="{{ post.article_title }}">
+                                <a href="/post/{{ post.post_id }}" class="hp-wdd-img-lnk" style="background-image: url(&quot;{{ post.cover.cover_path }}&quot;); background-position: center 35.7%;">
+                                    <img width="842" height="463" src="{{ post.cover.cover_path }}" class="hp-wdd-img wp-post-image" alt="{{ post.article_title }}">
                                 </a>
                                 <div class="hp-article-info">
                                     <div class="hp-cat">

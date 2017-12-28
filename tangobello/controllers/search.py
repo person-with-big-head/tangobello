@@ -51,7 +51,6 @@ def search():
             }
         }
     }
-    print(body)
 
     search_result = es.search(index='pool_articles', doc_type='info', body=body)
     posts = search_result['hits']['hits']
@@ -63,10 +62,6 @@ def search():
         if highlight and highlight.get('article_summary'):
             post['_source']['article_summary'] = "".join(highlight.get('article_summary'))
 
-        # post date
-        # post.post_date = post['_source']['post_date']
-
-        # article_img_list
         post['_source']['article_img_list'] = json.loads(post['_source']['article_img_list'])
 
     max_page = math.ceil(search_result['hits']['total'] / page_size)
