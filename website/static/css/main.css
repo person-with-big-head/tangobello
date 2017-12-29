@@ -351,6 +351,7 @@ span.hm-lnk, a.hm-lnk {
     clear: both;
     text-align: center;
     margin-top: 20px;
+    margin-bottom: 20px;
     font-family: Bushcraft;
 }
 
@@ -366,6 +367,10 @@ span.hm-lnk, a.hm-lnk {
     padding-left: 0;
     margin: 20px 0;
     color: #222;
+}
+
+.pagination>li>a:hover::after, .pagination>li>span:hover::after{
+    background: #FAB23A;
 }
 
 .pagination>li>a, .pagination>li>span {
@@ -680,11 +685,14 @@ span.hm-lnk, a.hm-lnk {
 .entry-content a.inner-link-effect:after,
 .jb-l-line:before,
 .author-bio-text a:after  ,
-.sweet-alert button
+.sweet-alert button,
+.pagination>li>a:after,
+.pagination>span>a:after,
+.pagination>li>a,
+.pagination>span>a
 {
   transition: all  0.3s ease-out;
 }
-
 
 .content-block {
     max-width: 1300px;
@@ -1060,11 +1068,6 @@ img.animation:hover{-webkit-transform: scale(1.1); -moz-transform: scale(1.1); -
     padding: 0px 0px 0;
 }
 
-.sb-popular-posts {
-    margin: 30px 0;
-    background: #fff;
-}
-
 .sb-popular-posts-block-title {
     text-transform: uppercase;
     font-size: 24px;
@@ -1123,7 +1126,7 @@ img.animation:hover{-webkit-transform: scale(1.1); -moz-transform: scale(1.1); -
 
 .content {
     flex: 1;
-    padding-right: 30px;
+    padding-right: 60px;
 }
 
 .sb-post-lnk-imgq img, .sb-post-bg-img, .s-related-post img {
@@ -1169,4 +1172,53 @@ img.animation:hover{-webkit-transform: scale(1.1); -moz-transform: scale(1.1); -
 
 *, ::after, ::before {
      box-sizing: inherit;
+}
+
+.sb-post-rows:hover .sb-post-row {
+  padding-top:5px;
+  padding-bottom:5px;
+
+}
+
+.sb-post-rows .sb-post-row:hover {
+  padding-top:55px;
+  padding-bottom:55px;
+}
+
+
+.sb-post-row.scd {
+  height:120px;
+  /*padding:5px 15px 5px 0px;*/
+}
+
+.sb-post-row.scu {
+  height:170px;
+}
+
+
+.sb-post-row:hover .sb-post-bg-img  {
+  transform: scale(1.5,1.5);
+  -webkit-filter: grayscale(0);
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+  opacity:1;
+
+}
+
+.sb-post-row:hover .sb-post-info-2 /* .sb-post-title*/ {
+  opacity:0;
+  transform:scale(2);
+}
+
+.sb-post-row:hover .sb-post-lnk-sq {
+  left:-80px;
+}
+
+.sb-post-row .sb-post-title a  {
+
+  /*text-transform:uppercase;*/
+}
+
+.sb-post-row .sb-post-title a:hover {
+  text-decoration:none;
 }
