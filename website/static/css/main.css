@@ -800,7 +800,7 @@ span.hm-lnk, a.hm-lnk {
 
 .llr-lv .list-post {
     width: 100%;
-    height: 250px;
+    /*height: 250px;*/
 }
 
 .list-post {
@@ -895,17 +895,13 @@ span.hm-lnk, a.hm-lnk {
     text-overflow: ellipsis;
 }
 
-.llr-lv .main-post-title a {
-    font-size: 32px;
-}
-
 .main-post-title a {
     font-size: 26px;
     color: #151515;
     line-height: 1.1em;
     text-decoration: none;
     font-weight: 700!important;
-    font-family: XinDiXiaWuChaBaiJinBan;
+    /*font-family: XinDiXiaWuChaBaiJinBan;*/
     /* font-weight: bold; */
 }
 
@@ -1081,7 +1077,25 @@ img.animation:hover{-webkit-transform: scale(1.1); -moz-transform: scale(1.1); -
     position: relative;
 }
 
+.sb-tag-block-title {
+    text-transform: uppercase;
+    font-size: 24px;
+    text-align: center;
+    padding: 2px 10px 2px;
+    /*display: inline-block;*/
+     width: 130px;
+    margin: 0 auto 15px;
+    color: #FEBC3E;
+    background: #F8B147;
+    position: relative;
+}
+
 .sb-popular-posts-block-title > span {
+    color: #191919;
+    position: relative;
+}
+
+.sb-tag-block-title > span {
     color: #191919;
     position: relative;
 }
@@ -1147,7 +1161,7 @@ img.animation:hover{-webkit-transform: scale(1.1); -moz-transform: scale(1.1); -
 .hp-cat {
     line-height: 1em;
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     text-transform: uppercase;
 }
 
@@ -1199,7 +1213,7 @@ img.animation:hover{-webkit-transform: scale(1.1); -moz-transform: scale(1.1); -
 .sb-post-row:hover .sb-post-bg-img  {
   transform: scale(1.5,1.5);
   -webkit-filter: grayscale(0);
-  -webkit-filter: grayscale(0%);
+  /*-webkit-filter: grayscale(0%);*/
   filter: grayscale(0%);
   opacity:1;
 
@@ -1222,3 +1236,109 @@ img.animation:hover{-webkit-transform: scale(1.1); -moz-transform: scale(1.1); -
 .sb-post-row .sb-post-title a:hover {
   text-decoration:none;
 }
+
+#footer-tags {
+    margin-bottom: 20px;
+    /*padding: 20px 0 0px;*/
+    /*border-top: 1px solid rgba(255,255,255, 0.1);*/
+    text-align: Center;
+    position: relative;
+    /*max-height: 130px;*/
+    overflow: hidden;
+    background-color: #1f1f1f;
+}
+
+#ft-tg-bg {
+    position: absolute;
+    opacity: 0;
+    border: 1px solid #FCBC3E;
+    border-radius: 2px;
+}
+
+#footer-tags a {
+    /* color: rgba(255,255,255,0.6); */
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 2px;
+    margin: 0 5px 10px;
+}
+
+.footer-copy, #footer-nav-links, #footer-tags a > span {
+    font-size: 15px;
+}
+
+#footer-tags a > span {
+    display: inline-block;
+    /* color: #c3c4c4; */
+    color: rgba(255,255,255, 0.8);
+    padding: 4px 8px;
+    /* background: rgba(255,255,255, 0.05); */
+    /* opacity: 0.6; */
+    text-transform: lowercase;
+    position: relative;
+    /* mix-blend-mode: multiply; */
+}
+
+/*
+#footer-tags a > span:after {
+  content:"";
+  position:absolute;
+  left:-1px;
+  top:-1px;
+  width:100%;
+  height:100%;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+   border:1px solid #FCBC3E;
+  border-radius:2px;
+
+
+  -webkit-clip-path: polygon(0px 0, 0 0, 0 100%, 0 100%);
+  clip-path: polygon(0px 0, 0 0, 0 100%, 0 100%);
+
+}
+*/
+
+#footer-tags a.anim > span {
+  transition: all 0.3s cubic-bezier(0.000, 0.000, 0.230, 1);
+}
+
+#footer-tags a.anim > span:after {
+  transition: all 0.3s ease-out;
+}
+
+#footer-tags a.reversed > span {
+  background-position: -100%;
+}
+
+#footer-tags a.reversed > span:after{
+   -webkit-clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+   clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+
+}
+
+#footer-tags a.over > span:after {
+     -webkit-clip-path: polygon(0px 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0px 0, 100% 0, 100% 100%, 0 100%);
+}
+
+#footer-tags a:hover > span { color:#FCBC3E; }
+
+#footer-tags a.over > span{ /*opacity:1; text-decoration:None;*/
+  /*
+  background: linear-gradient(to right, #FCBC3E, #FCBC3E);
+  -webkit-background-clip: text;
+  */
+  text-decoration:None;
+
+
+
+  background-position: 0%;
+  /*animation: stripeAnimation 0.3s linear forward;*/
+}
+
+#footer-tags a > span {
+  font-size:15px;
+}
+
+#ft-tg-bg.active { opacity:1; }

@@ -16,55 +16,166 @@
             <div id="wdd-articles">
                 <div class="hp-set-1 hp-set">
 
-                    <!-- six top articles -->
-                    {% for post in six_top_posts %}
-                        <article class="article-hp-wdd">
-                        <div class="article-hp-content">
-                            <a href="/post/{{ post.post_id }}" class="hp-wdd-img-lnk"></a>
-                            <div class="ahc-img" style="background-image: url(&quot;{{ post.cover.cover_path }}&quot;); background-position: center 0%;">
-                                <img width="842" height="463" src="{{ post.cover.cover_path }}"
-                                     class="hp-wdd-img wp-post-image" alt="{{ post.article_title }}"
-                                     sizes="(max-width: 842px) 100vw, 842px">
-                            </div>
-                            <div class="hp-article-info">
-                                <div class="hp-cat">
-                                    <a class="hp-category" href="/category/{{ post.category.category_name }}">
-                                        {{ post.category.category_name }}
-                                    </a>
-                                </div>
-                                <h2 class="hp-article-title">
-                                    <a href="/post/{{ post.post_id }}" class="anim-link">{{ post.article_title }}</a>
-                                </h2>
-                                <div class="hp-excerpt">
-                                    {{ post.article_summary }}
-                                </div>
-                                <div class="hp-post-pub-info">
-                                    <a class="haa-lnk" href="/author/{{ post.author.author_name }}">
-                                        <img src="{{ post.author.author_avatar }}" alt="{{ post.author.author_name }}" class="hpppi-author-avatar">
-                                    </a>
-                                    <span class="hpppi-author">
-                                        By <a href="/author/{{ post.author.author_name }}">{{ post.author.author_name }}</a>
-                                    </span>
-                                    <span class="hpppi-separator">•</span>
-                                    <span class="hppi-time">
-                                        <span class="icon-clock-1"></span>
-                                        15 hrs ago
-                                    </span>
-                                    <span class="hpppi-separator">•</span>
-                                    <span class="hp-inline-shr">
-                                        <span class="hpsi-row">
-                                            <i class="fa fa-qq" aria-hidden="true" style="color: #FAB23A;"></i>
-                                        </span>
-                                         <span class="hpsi-row">
-                                            <i class="fa fa-weixin" aria-hidden="true" style="color: #FAB23A;"></i>
-                                         </span>
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
-                    {% endfor %}
-                    <!-- end six top articles -->
+                    <div class="sb-popular-posts spp-dark">
+
+   <div class="sb-popular-posts-block-title"><span>Popular posts</span></div>
+
+     <div class="sb-popular-posts-block sb-post-rows">
+
+      <article class="sb-post-row d-flex flex-row">
+
+
+  <img width="842" height="463" src="https://netdna.webdesignerdepot.com/uploads/2017/09/featured_challenges-1024x563.jpg" class="sb-post-bg-img wp-post-image" alt="7 Design Challenges to Sharpen Your Skills" srcset="https://netdna.webdesignerdepot.com/uploads/2017/09/featured_challenges-1024x563.jpg 1024w, https://netdna.webdesignerdepot.com/uploads/2017/09/featured_challenges-300x165.jpg 300w, https://netdna.webdesignerdepot.com/uploads/2017/09/featured_challenges-768x422.jpg 768w" sizes="(max-width: 842px) 100vw, 842px">
+
+
+
+
+    <a href="https://www.webdesignerdepot.com/2017/11/7-design-challenges-to-sharpen-your-skills/" class="sb-post-lnk-imgq d-flex flex-column justify-content-center">
+
+        <img width="150" height="150" src="https://netdna.webdesignerdepot.com/uploads/2017/09/featured_challenges-150x150.jpg" class="sb-post-thumb wp-post-image" alt="">    </a>
+
+
+
+
+
+       <div class="sb-post-info-2 d-flex flex-column justify-content-center">
+
+
+
+
+
+       <div class="hp-cat">
+        <a data-tooltip="See all posts related to Web Design" class="hp-category" href="https://www.webdesignerdepot.com/category/web-design-3/">Web Design</a>        </div>
+      <h2 class="sb-post-title">
+          <a href="https://www.webdesignerdepot.com/2017/11/7-design-challenges-to-sharpen-your-skills/" class="anim-link">7 Design Challenges to Sharpen Your Skills</a>
+      </h2>
+
+              </div>
+
+</article>  <article class="sb-post-row d-flex flex-row">
+
+
+  <img width="842" height="463" src="https://netdna.webdesignerdepot.com/uploads/2017/09/featured_white-1024x563.jpg" class="sb-post-bg-img wp-post-image" alt="4 Things Every Designer Should Know About Whitespace" srcset="https://netdna.webdesignerdepot.com/uploads/2017/09/featured_white-1024x563.jpg 1024w, https://netdna.webdesignerdepot.com/uploads/2017/09/featured_white-300x165.jpg 300w, https://netdna.webdesignerdepot.com/uploads/2017/09/featured_white-768x422.jpg 768w" sizes="(max-width: 842px) 100vw, 842px">
+
+
+
+
+    <a href="https://www.webdesignerdepot.com/2017/10/4-things-every-designer-should-know-about-whitespace/" class="sb-post-lnk-imgq d-flex flex-column justify-content-center">
+
+        <img width="150" height="150" src="https://netdna.webdesignerdepot.com/uploads/2017/09/featured_white-150x150.jpg" class="sb-post-thumb wp-post-image" alt="">    </a>
+
+
+
+
+
+       <div class="sb-post-info-2 d-flex flex-column justify-content-center">
+
+
+
+
+
+       <div class="hp-cat">
+        <a data-tooltip="See all posts related to Web Design" class="hp-category" href="https://www.webdesignerdepot.com/category/web-design-3/">Web Design</a>        </div>
+      <h2 class="sb-post-title">
+          <a href="https://www.webdesignerdepot.com/2017/10/4-things-every-designer-should-know-about-whitespace/" class="anim-link">4 Things Every Designer Should Know About Whitespace</a>
+      </h2>
+
+              </div>
+
+</article>  <article class="sb-post-row d-flex flex-row">
+
+
+  <img width="842" height="463" src="https://netdna.webdesignerdepot.com/uploads/2017/09/featured_trends-1024x563.jpg" class="sb-post-bg-img wp-post-image" alt="3 Essential Design Trends, October 2017" srcset="https://netdna.webdesignerdepot.com/uploads/2017/09/featured_trends-1024x563.jpg 1024w, https://netdna.webdesignerdepot.com/uploads/2017/09/featured_trends-300x165.jpg 300w, https://netdna.webdesignerdepot.com/uploads/2017/09/featured_trends-768x422.jpg 768w" sizes="(max-width: 842px) 100vw, 842px">
+
+
+
+
+    <a href="https://www.webdesignerdepot.com/2017/10/3-essential-design-trends-october-2017/" class="sb-post-lnk-imgq d-flex flex-column justify-content-center">
+
+        <img width="150" height="150" src="https://netdna.webdesignerdepot.com/uploads/2017/09/featured_trends-150x150.jpg" class="sb-post-thumb wp-post-image" alt="">    </a>
+
+
+
+
+
+       <div class="sb-post-info-2 d-flex flex-column justify-content-center">
+
+
+
+
+
+       <div class="hp-cat">
+        <a data-tooltip="See all posts related to Inspiration" class="hp-category" href="https://www.webdesignerdepot.com/category/inspiration/">Inspiration</a>        </div>
+      <h2 class="sb-post-title">
+          <a href="https://www.webdesignerdepot.com/2017/10/3-essential-design-trends-october-2017/" class="anim-link">3 Essential Design Trends, October 2017</a>
+      </h2>
+
+              </div>
+
+</article>  <article class="sb-post-row d-flex flex-row">
+
+
+  <img width="842" height="387" src="https://netdna.webdesignerdepot.com/uploads/2017/10/featured_css-1024x471.jpg" class="sb-post-bg-img wp-post-image" alt="So, Can We Use CSS Variables Yet?" srcset="https://netdna.webdesignerdepot.com/uploads/2017/10/featured_css-1024x471.jpg 1024w, https://netdna.webdesignerdepot.com/uploads/2017/10/featured_css-300x138.jpg 300w, https://netdna.webdesignerdepot.com/uploads/2017/10/featured_css-768x354.jpg 768w" sizes="(max-width: 842px) 100vw, 842px">
+
+
+
+
+    <a href="https://www.webdesignerdepot.com/2017/10/so-can-we-use-css-variables-yet/" class="sb-post-lnk-imgq d-flex flex-column justify-content-center">
+
+        <img width="150" height="150" src="https://netdna.webdesignerdepot.com/uploads/2017/10/featured_css-150x150.jpg" class="sb-post-thumb wp-post-image" alt="">    </a>
+
+
+
+
+
+       <div class="sb-post-info-2 d-flex flex-column justify-content-center">
+
+
+
+
+
+       <div class="hp-cat">
+        <a data-tooltip="See all posts related to CSS" class="hp-category" href="https://www.webdesignerdepot.com/category/css/">CSS</a>        </div>
+      <h2 class="sb-post-title">
+          <a href="https://www.webdesignerdepot.com/2017/10/so-can-we-use-css-variables-yet/" class="anim-link">So, Can We Use CSS Variables Yet?</a>
+      </h2>
+
+              </div>
+
+</article>  <article class="sb-post-row d-flex flex-row">
+
+
+  <img width="842" height="463" src="https://netdna.webdesignerdepot.com/uploads/2017/10/featured_trends-1024x563.jpg" class="sb-post-bg-img wp-post-image" alt="3 Essential Design Trends, November 2017" srcset="https://netdna.webdesignerdepot.com/uploads/2017/10/featured_trends-1024x563.jpg 1024w, https://netdna.webdesignerdepot.com/uploads/2017/10/featured_trends-300x165.jpg 300w, https://netdna.webdesignerdepot.com/uploads/2017/10/featured_trends-768x422.jpg 768w" sizes="(max-width: 842px) 100vw, 842px">
+
+
+
+
+    <a href="https://www.webdesignerdepot.com/2017/10/3-essential-design-trends-november-2017/" class="sb-post-lnk-imgq d-flex flex-column justify-content-center">
+
+        <img width="150" height="150" src="https://netdna.webdesignerdepot.com/uploads/2017/10/featured_trends-150x150.jpg" class="sb-post-thumb wp-post-image" alt="">    </a>
+
+
+
+
+
+       <div class="sb-post-info-2 d-flex flex-column justify-content-center">
+
+
+
+
+
+       <div class="hp-cat">
+        <a data-tooltip="See all posts related to Inspiration" class="hp-category" href="https://www.webdesignerdepot.com/category/inspiration/">Inspiration</a>        </div>
+      <h2 class="sb-post-title">
+          <a href="https://www.webdesignerdepot.com/2017/10/3-essential-design-trends-november-2017/" class="anim-link">3 Essential Design Trends, November 2017</a>
+      </h2>
+
+              </div>
+
+</article>           </div>
+
+
+</div>
 
                 </div>
                 <div class="hp-left-c">
