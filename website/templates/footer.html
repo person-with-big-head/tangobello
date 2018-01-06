@@ -1,25 +1,34 @@
-<footer id="footer">
-    <div id="footer-before">
-    </div>
-    <form id="footer-nl" target="sb-subscribe-form-frame" action="/" method="post">
+<footer id="footer-wrap">
+    <div id="footer">
         <div class="content-block">
-            <div class="ftnl-left">
-                <div id="join-nl-text">
-                    订阅后，第一时间GET新文章
-                </div>
+            <form id="newsletter-form" method="post" action="/" class="d-flex flex-row justify-content-center clearfix">
+            <div id="newsletter-label" class="d-flex flex-column justify-content-center"
+                 data-text="Subscribe to our newsletter" data-replacing-text2="Subscribe to our newsletter"
+                 data-replacing-text3="JOIN OUR 1,136,336 SUBSCRIBERS"
+                 data-replacing-text1="GET EXCLUSIVE FREEBIES AND NEWS">
+                <div id="nl-sublabel">邮件订阅，第一时间GET新文章</div>
             </div>
-            <div class="ftnl-right">
-                <div>
-                    <input type="text" class="inactive footer-text-field" name="email" id="footer-subscribe-email" value="" placeholder="Your email address...">
-                    <button class="footer-submit-btn" id="footer-subscribe-btn" data-text="Subscribe me" data-replacing-text="LET’S DO IT!">Subscribe me</button>
-                </div>
-                <input type="hidden" name="ref" id="ref" value="wddfooter">
-                <input type="hidden" name="ip" id="nl_sb_ip_field" value="">
-                <input type="hidden" name="signupurl" id="signupurl" value="/">
+            <input type="email" id="newsletter-email" value="" placeholder="Enter your email address here">
+            <div id="newsletter-button-wrap">
+                <a id="newsletter-button" href="#" class="d-flex flex-column justify-content-center">
+                    <span>Submit</span>
+                </a>
             </div>
+            </form>
         </div>
-    </form>
-    <div class="footer-copy">
-       探戈博鲁  COPYRIGHT ©  2017 ALL RIGHTS RESERVED 鄂ICP备17029866号
-     </div>
+        <nav id="footer-nav-links">
+           <a href="/">Home</a>
+           <a href="/about">About</a>
+           <a href="/categories">Categories</a>
+           <a href="/tags">Tags</a>
+           <a href="/authors">Authors</a>
+           <a href="/timeline">Timeline</a>
+           <a href="http://dashboard.tangobello.cn">Dashboard</a>
+           <a href="/">Github</a>
+           <a href="/contact">Contact</a>
+        </nav>
+        <div class="footer-copy">
+            探戈博鲁 ©  2017-2018 All Rights Reserved 鄂ICP备17029866号
+        </div>
+    </div>
 </footer>

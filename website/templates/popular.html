@@ -1,0 +1,27 @@
+<div class="sb-popular-posts spp-dark">
+   <div class="sb-popular-posts-block-title">
+       <span>Popular posts</span>
+   </div>
+   <div class="sb-popular-posts-block sb-post-rows">
+       {% for post in popular_posts %}
+           <article class="sb-post-row d-flex flex-row">
+               <img width="842" height="463" src="{{ post.cover.cover_path }}"
+                    class="sb-post-bg-img wp-post-image" alt="{{ post.article_title }}"
+                    sizes="(max-width: 842px) 100vw, 842px">
+               <a href="/post/{{ post.post_id }}" class="sb-post-lnk-imgq d-flex flex-column justify-content-center">
+                    <img width="150" height="150" src="{{ post.cover.cover_path }}"
+                         class="sb-post-thumb wp-post-image" alt="">
+               </a>
+               <div class="sb-post-info-2 d-flex flex-column justify-content-center">
+                   <div class="hp-cat">
+                       <a data-tooltip="See all posts related to {{ post.category.category_name }}"
+                          class="hp-category" href="/category/{{ post.category.category_id }}">{{ post.category.category_name }}</a>
+                   </div>
+                   <h2 class="sb-post-title">
+                       <a href="/post/{{ post.post_id }}" class="anim-link">{{ post.article_title }}</a>
+                   </h2>
+               </div>
+           </article>
+       {% endfor  %}
+   </div>
+</div>

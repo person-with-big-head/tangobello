@@ -1,0 +1,9 @@
+<div id="footer-tags">
+<div class="sb-tag-block-title"><span>Tags</span></div>
+<span id="ft-tg-bg" class="ft-tags" style="width: 59.0938px; height: 28px; top: 96px; left: 113.453px;"></span>
+    {% for tag in tags %}
+        <a href="/tag/{{ tag.tag_id }}" title="{{ tag.tag_name }}" class="{{ tag.tag_name }}">
+            <span>{{ tag.tag_name }} </span>
+        </a>
+    {% endfor %}
+</div>

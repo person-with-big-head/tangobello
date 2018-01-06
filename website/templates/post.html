@@ -24,17 +24,18 @@
                     <div class="atb-text-wrap">
                         <div class="atb-text">
                             <div class="in-meta">
-                                <a class="category" href="/category/{{ post.category.category_name }}">{{ post.category.category_name }}</a>
+                                <a class="category" href="/category/{{ post.category.category_id }}">{{ post.category.category_name }}</a>
                             </div>
-                            <h1 id="wdd-inner-article-title" class="new-single-title">{{ post.article_title }}</h1>
+                            <h1 id="wdd-inner-article-title" class="new-single-title">
+                                {{ post.article_title }}</h1>
                             <div class="post-pub-info">
                                 <div class="ppi-author">
                                     <div class="ppis">
-                                    <a class="auth-ava-lnk" href="/author/{{ post.author.author_name }}">
+                                    <a class="auth-ava-lnk" href="/author/{{ post.author.author_id }}">
                                         <img alt="" src="{{ post.author.author_avatar }}" class="avatar avatar-36 photo" height="36" width="36">
                                     </a>
                                     <span>
-                                        By <a href="/author/{{ post.author.author_name }}">{{ post.author.author_name }}</a>
+                                        By <a href="/author/{{ post.author.author_id }}">{{ post.author.author_name }}</a>
                                     </span>
                                     <span class="ppi-dot">·</span>
                                     <span class="ppi-time-label">
@@ -50,6 +51,7 @@
                     </div>
                 </div>
                 <div class="share-block">
+
                 </div>
                 <div class="article-block-wrap white">
                     <div class=" article-block white">
@@ -61,6 +63,7 @@
 					                <p>本站文章除注明转载外，均为本站原创或编译，如需转载，请联系我们获得授权。转载时，应注明来源、作者及原文链接。</p>
 					            </div>
                             </article>
+                            {% include "comment.html" %}
                         </div>
                     </div>
                 </div> <!-- article-block-wrap -->
@@ -71,5 +74,6 @@
 </div>
 {% include "footer.html" %}
 <script src="/static/js/prism.js"></script>
+<script id="dsq-count-scr" src="//blog-tangobello-cn.disqus.com/count.js" async></script>
 </body>
 </html>

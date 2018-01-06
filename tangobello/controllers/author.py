@@ -3,7 +3,7 @@ from urllib.parse import quote
 
 from bottle import get, redirect
 
-from tangobello.models import BasketArticleList, Authors, Categories
+from tangobello.models import BasketArticleList, Authors, Categories, ShowStatusEnum, Tags
 from tangobello.serializers import basket_article_list_serializer
 from tangobello.utils import template
 from tangobello.plugins import boilerplate_plugin
@@ -19,20 +19,33 @@ def author(author_id):
     # get posts list.
     article_list = (BasketArticleList.select()
                     .join(Categories, on=(Categories.category_id == BasketArticleList.category))
-                    .where(BasketArticleList.author == author_info.author_id)
-                    .order_by(BasketArticleList.updated_at).limit(10))
+                    .where(BasketArticleList.author == author_info.author_id,
+                           BasketArticleList.show_status == ShowStatusEnum.PUBLIC_POST.value)
+                    .order_by(-BasketArticleList.updated_at).limit(10))
 
     for post in article_list:
         post.author = author_info
 
     # get page number
-    page_num = math.ceil(len(BasketArticleList.select(BasketArticleList.post_id)) / 10)
+    page_num = math.ceil(len(BasketArticleList.filter(
+        BasketArticleList.author == author_id,
+        BasketArticleList.show_status == ShowStatusEnum.PUBLIC_POST.value)) / 10)
+
+    # get tags
+    tags = Tags.select()
+
+    # get popular articles.
+    popular_articles = (BasketArticleList.select().join(Authors, on=(Authors.author_id == BasketArticleList.author))
+                        .where(BasketArticleList.show_status == ShowStatusEnum.PUBLIC_POST.value)
+                        .order_by(-BasketArticleList.updated_at).limit(5))
 
     return {
         'article_list': basket_article_list_serializer.dump(article_list, many=True).data,
         'current_page': 1,
         'max_page': page_num,
-        'author': author_info
+        'author': author_info,
+        'tags': tags,
+        'popular_posts': popular_articles,
     }
 
 
@@ -47,18 +60,31 @@ def author(author_id, page):
     # get posts list.
     article_list = (BasketArticleList.select()
                     .join(Categories, on=(Categories.category_id == BasketArticleList.category))
-                    .where(BasketArticleList.author == author_info.author_id)
+                    .where(BasketArticleList.author == author_info.author_id,
+                           BasketArticleList.show_status == ShowStatusEnum.PUBLIC_POST.value)
                     .order_by(BasketArticleList.updated_at).paginate(page, 10))
 
     for post in article_list:
         post.author = author_info
 
     # get page number
-    page_num = math.ceil(len(BasketArticleList.select(BasketArticleList.post_id)) / 10)
+    page_num = math.ceil(len(BasketArticleList.filter(
+        BasketArticleList.author == author_id,
+        BasketArticleList.show_status == ShowStatusEnum.PUBLIC_POST.value)) / 10)
+
+    # get tags
+    tags = Tags.select()
+
+    # get popular articles.
+    popular_articles = (BasketArticleList.select().join(Authors, on=(Authors.author_id == BasketArticleList.author))
+                        .where(BasketArticleList.show_status == ShowStatusEnum.PUBLIC_POST.value)
+                        .order_by(-BasketArticleList.updated_at).limit(5))
 
     return {
         'article_list': basket_article_list_serializer.dump(article_list, many=True).data,
         'current_page': page,
         'max_page': page_num,
-        'author': author_info
+        'author': author_info,
+        'tags': tags,
+        'popular_posts': popular_articles,
     }

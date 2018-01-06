@@ -7,25 +7,21 @@ from tangobello.utils import template
 from tangobello.plugins import boilerplate_plugin
 
 
-@get('/category/<category_id>', skip=[boilerplate_plugin])
-@template('category.html')
-def category(category_id):
-
-    # get category information
-    category_info = (Categories.get(Categories.category_id == category_id))
+@get('/archive/<year:int>', skip=[boilerplate_plugin])
+@template('archive.html')
+def category(year):
 
     # get posts list.
-    article_list = (BasketArticleList.select().join(Authors, on=(Authors.author_id == BasketArticleList.author))
-                    .where(BasketArticleList.category == category_info.category_id,
+    article_list = (BasketArticleList.select()
+                    .join(Authors, on=(Authors.author_id == BasketArticleList.author))
+                    .join(Categories, on=(Categories.category_id == BasketArticleList.category))
+                    .where(BasketArticleList.updated_at.year == year,
                            BasketArticleList.show_status == ShowStatusEnum.PUBLIC_POST.value)
                     .order_by(-BasketArticleList.updated_at).limit(10))
 
-    for post in article_list:
-        post.category = category_info
-
     # get page number
     page_num = math.ceil(len(BasketArticleList.filter(
-        BasketArticleList.category == category_info.category_id,
+        BasketArticleList.updated_at.year == year,
         BasketArticleList.show_status == ShowStatusEnum.PUBLIC_POST.value)) / 10)
 
     # get tags
@@ -40,33 +36,29 @@ def category(category_id):
         'article_list': basket_article_list_serializer.dump(article_list, many=True).data,
         'current_page': 1,
         'max_page': page_num,
-        'category': category_info,
         'tags': tags,
         'popular_posts': popular_articles,
+        'year': year,
     }
 
 
-@get('/category/<category_id>/page/<page:int>', skip=[boilerplate_plugin])
-@template('category.html')
-def category(category_id, page):
+@get('/archive/<year:int>/page/<page:int>', skip=[boilerplate_plugin])
+@template('archive.html')
+def category(year, page):
     if page == 1:
-        redirect('/category/' + category_id)
-
-    # get category information
-    category_info = (Categories.get(Categories.category_id == category_id))
+        redirect('/archive/' + str(year))
 
     # get posts list.
-    article_list = (BasketArticleList.select().join(Authors, on=(Authors.author_id == BasketArticleList.author))
-                    .where(BasketArticleList.category == category_info.category_id,
+    article_list = (BasketArticleList.select()
+                    .join(Authors, on=(Authors.author_id == BasketArticleList.author))
+                    .join(Categories, on=(Categories.category_id == BasketArticleList.category))
+                    .where(BasketArticleList.updated_at.year == year,
                            BasketArticleList.show_status == ShowStatusEnum.PUBLIC_POST.value)
                     .order_by(-BasketArticleList.updated_at).paginate(page, 10))
 
-    for post in article_list:
-        post.category = category_info
-
     # get page number
     page_num = math.ceil(len(BasketArticleList.filter(
-        BasketArticleList.category == category_info.category_id,
+        BasketArticleList.updated_at.year == year,
         BasketArticleList.show_status == ShowStatusEnum.PUBLIC_POST.value)) / 10)
 
     # get tags
@@ -81,7 +73,7 @@ def category(category_id, page):
         'article_list': basket_article_list_serializer.dump(article_list, many=True).data,
         'current_page': page,
         'max_page': page_num,
-        'category': category_info,
         'tags': tags,
         'popular_post': popular_articles,
+        'year': year
     }
