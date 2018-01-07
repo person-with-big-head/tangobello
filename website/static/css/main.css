@@ -1723,3 +1723,7 @@ img.vishi {
     text-overflow: ellipsis;
     max-width: 150px;
 }
+
+#logo{
+    text-decoration: none;
+}
