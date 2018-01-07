@@ -1182,7 +1182,7 @@ img.animation:hover{-webkit-transform: scale(1.1); -moz-transform: scale(1.1); -
     /*font-size: 22px;*/
     line-height: 1.2em;
     text-decoration: none;
-    padding-left: 10px;
+    /*padding-left: 10px;*/
 }
 
 .wrapper {
@@ -1685,4 +1685,41 @@ img.vishi {
     margin-top: 20px;
     color: rgba(255,255,255, 0.8);
     font-size: 13px;
+}
+
+.sb-post-info-2:after {
+    counter-increment: sbnum;
+    content: counter(sbnum);
+    position: absolute;
+    top: 0;
+    height: 100%;
+    right: -15px;
+    font-size: 66px;
+    color: rgba(255,255,255, 0.1);
+    display: flex;
+    justify-content: center!important;
+    flex-direction: column!important;
+}
+
+.sb-post-info-2 {
+    flex: 1;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative;
+}
+
+.sb-post-info-2>h2, .sb-post-info-2 .hp-cat{
+    text-align: left;
+}
+
+.sb-post-title {
+    font-weight: bold;
+    text-align: left;
+    /* margin-top: 10px; */
+    position: relative;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 150px;
 }
