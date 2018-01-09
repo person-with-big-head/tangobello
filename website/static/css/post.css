@@ -168,9 +168,12 @@ h1.new-single-title {
 .article-content h2 {
     font-size: 1.3em;
     margin: 40px 10px 20px 0;
+    font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
     padding-left: 9px;
     border-left: 6px solid #ff7e79;
     font-weight: bold;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
 .article-content h3{
@@ -328,4 +331,14 @@ h1.new-single-title {
 
 .publisher-anchor-color a {
     color: #656c7a;
+}
+
+.article-content>p, .article-content>ul p, .article-content>ol p{
+    text-indent: 2em;
+}
+
+.article-content>p{
+    margin: 0 0 20px;
+    line-height: 27px;
+    font-size: 14px;
 }

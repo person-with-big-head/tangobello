@@ -910,10 +910,15 @@ span.hm-lnk, a.hm-lnk {
 }
 
 .llr-lv .hp-excerpt {
-    font-size: 13px;
-    line-height: 1.4em;
+    /*font-size: 13px;*/
+    /*line-height: 1.4em;*/
     -webkit-line-clamp: 3;
     max-height: 70px;
+
+    /*min-height: 100px;*/
+    line-height: 22px;
+    font-size: 12px;
+    /*color: #7f8c97;*/
 }
 
 .hp-excerpt {
@@ -1047,15 +1052,6 @@ img.animation:hover{-webkit-transform: scale(1.1); -moz-transform: scale(1.1); -
 #fixed-controls{
     transition: all  .1s ease-out;
 }
-
-.footer-copy{
-    text-align: center;
-    color: white;
-    /*font-weight: bold;*/
-    font-size: 14px;
-    /*font-family: monospace, NuvoWeb;*/
-}
-
 
 #sidebar, .sidebar {
     min-width: 300px;
